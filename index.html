@@ -1,0 +1,547 @@
+Sandeep Dog Farm — index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sandeep Dog Farm | Quality Puppies</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#101010;
+    color:white;
+}
+
+header{
+    background:#000;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#f5c542;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:18px;
+}
+
+.hero{
+    min-height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px 20px;
+
+    background:
+    linear-gradient(#0009,#0009),
+    url("https://images.unsplash.com/photo-1587300003388-59208cc962cb")
+    center/cover;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero span{
+    color:#f5c542;
+}
+
+.hero p{
+    font-size:20px;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    margin:5px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    background:#f5c542;
+    color:#000;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+}
+
+section{
+    padding:60px 7%;
+    text-align:center;
+}
+
+section h2{
+    color:#f5c542;
+    font-size:34px;
+    margin-bottom:30px;
+}
+
+.about{
+    max-width:850px;
+    margin:auto;
+    line-height:1.8;
+    color:#ddd;
+}
+
+.breeds{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1d1d1d;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px #000;
+}
+
+.card img{
+    width:100%;
+    height:210px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px 10px 5px;
+}
+
+.card p{
+    color:#ccc;
+    padding:5px 15px 20px;
+}
+
+.booking{
+    background:#181818;
+}
+
+form{
+    max-width:600px;
+    margin:auto;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+    background:#292929;
+    color:white;
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:#f5c542;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+footer{
+    background:#000;
+    text-align:center;
+    padding:30px 15px;
+}
+
+.social a{
+    color:#f5c542;
+    margin:10px;
+    text-decoration:none;
+}
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav a{
+        margin:5px;
+        font-size:14px;
+    }
+
+    .hero h1{
+        font-size:36px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+🐕 SANDEEP DOG FARM
+</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#breeds">Breeds</a>
+<a href="#about">About</a>
+<a href="#booking">Booking</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>
+Welcome to
+<span>Sandeep Dog Farm</span>
+</h1>
+
+<p>
+Quality Puppies • Trusted Service • Delivery Available
+</p>
+
+<a class="btn whatsapp"
+href="https://wa.me/919041205060?text=Hello%20Sandeep%20Dog%20Farm,%20I%20want%20information%20about%20puppies."
+target="_blank">
+
+WhatsApp Booking
+
+</a>
+
+<a class="btn"
+href="tel:+919041205060">
+
+📞 Call Now
+
+</a>
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<h2>About Sandeep Dog Farm</h2>
+
+<div class="about">
+
+<p>
+
+Welcome to Sandeep Dog Farm.
+
+We provide different breeds of puppies
+and help customers with puppy information,
+booking and delivery.
+
+Contact us for current availability,
+price and details.
+
+</p>
+
+</div>
+
+</section>
+
+
+<section id="breeds">
+
+<h2>Available Dog Breeds</h2>
+
+<div class="breeds">
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1558788353-f76d92427f16">
+
+<h3>German Shepherd</h3>
+
+<p>
+Beautiful and intelligent breed.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1552053831-71594a27632d">
+
+<h3>Labrador</h3>
+
+<p>
+Friendly family companion.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1605568427561-40dd23c2acea">
+
+<h3>Husky</h3>
+
+<p>
+Active and beautiful breed.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee">
+
+<h3>Pomeranian</h3>
+
+<p>
+Small and adorable companion.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e">
+
+<h3>French Bulldog</h3>
+
+<p>
+Popular companion breed.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1558788353-f76d92427f16">
+
+<h3>Golden Retriever</h3>
+
+<p>
+Friendly and loving family dog.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="booking" id="booking">
+
+<h2>Online Puppy Enquiry</h2>
+
+<form
+onsubmit="sendWhatsApp(); return false;"
+>
+
+<input
+id="name"
+type="text"
+placeholder="Your Name"
+required
+>
+
+<input
+id="phone"
+type="tel"
+placeholder="Mobile Number"
+required
+>
+
+<select id="breed" required>
+
+<option value="">
+Select Breed
+</option>
+
+<option>
+German Shepherd
+</option>
+
+<option>
+Labrador
+</option>
+
+<option>
+Husky
+</option>
+
+<option>
+Pomeranian
+</option>
+
+<option>
+French Bulldog
+</option>
+
+<option>
+Golden Retriever
+</option>
+
+</select>
+
+<textarea
+id="message"
+placeholder="Your Requirement"
+rows="5"
+></textarea>
+
+<button type="submit">
+
+Send Enquiry on WhatsApp
+
+</button>
+
+</form>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<p>
+📞 Phone: +91 90412 05060
+</p>
+
+<br>
+
+<a
+class="btn whatsapp"
+href="https://wa.me/919041205060"
+target="_blank"
+>
+
+WhatsApp
+
+</a>
+
+
+<div class="social">
+
+<br>
+
+<a
+href="https://www.facebook.com/share/1H8zkPqbpL/"
+target="_blank"
+>
+
+Facebook
+
+</a>
+
+<a href="#" target="_blank">
+
+Instagram
+
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 Sandeep Dog Farm.
+All Rights Reserved.
+</p>
+
+<p>
+Quality Puppies • Trusted Service • Delivery Available
+</p>
+
+</footer>
+
+
+<script>
+
+function sendWhatsApp(){
+
+let name =
+document.getElementById("name").value;
+
+let phone =
+document.getElementById("phone").value;
+
+let breed =
+document.getElementById("breed").value;
+
+let message =
+document.getElementById("message").value;
+
+
+let text =
+"Hello Sandeep Dog Farm,%0A%0A" +
+
+"Name: " + name + "%0A" +
+
+"Mobile: " + phone + "%0A" +
+
+"Breed: " + breed + "%0A" +
+
+"Requirement: " + message;
+
+
+window.open(
+
+"https://wa.me/919041205060?text="
++ text,
+
+"_blank"
+
+);
+
+}
+
+</script>
+
+</body>
+</html>
+
+GitHub में अब क्या करना है
+
+पूरा code Copy करें → "index.html" में Paste करें → Commit changes दबाएँ।
+
+फिर Settings → Pages → main → "/ (root)" → Save करें।
+
+कुछ समय बाद Visit site दबाएँ। आपकी Sandeep Dog Farm वेबसाइट Live हो जाएगी। 🐕🌐
