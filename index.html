@@ -388,7 +388,50 @@ required
 <select id="breed" required>
 
 <option value="">
-Select Breed
+<!-- BREED SEARCH -->
+<div class="breed-search-box">
+  <span class="search-icon">🔍</span>
+
+  <input
+    type="text"
+    id="breedSearch"
+    placeholder="Search your breed..."
+    onkeyup="searchBreed()"
+  >
+</div>
+
+<!-- PUPPY RESULTS -->
+<div id="puppyResults" class="puppy-results">
+
+  <div class="puppy-card" data-breed="labrador">
+    <img src="images/labrador.jpg" alt="Labrador Puppy">
+    <h3>Labrador Puppy</h3>
+    <p>Labrador</p>
+  </div>
+
+  <div class="puppy-card" data-breed="german shepherd">
+    <img src="images/german-shepherd.jpg" alt="German Shepherd Puppy">
+    <h3>German Shepherd Puppy</h3>
+    <p>German Shepherd</p>
+  </div>
+
+  <div class="puppy-card" data-breed="golden retriever">
+    <img src="images/golden-retriever.jpg" alt="Golden Retriever Puppy">
+    <h3>Golden Retriever Puppy</h3>
+    <p>Golden Retriever</p>
+  </div>
+
+  <div class="puppy-card" data-breed="pomeranian">
+    <img src="images/pomeranian.jpg" alt="Pomeranian Puppy">
+    <h3>Pomeranian Puppy</h3>
+    <p>Pomeranian</p>
+  </div>
+
+</div>
+
+<p id="noResults" class="no-results">
+  No puppies found for this breed.
+</p>
 </option><select id="breed" required>
     <option value="">Select Breed</option>
     <option value="All Breeds">All Breeds</option>
