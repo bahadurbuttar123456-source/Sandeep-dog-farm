@@ -530,7 +530,46 @@ required
 id="message"
 placeholder="Your Requirement"
 rows="5"
-></textarea>
+></textarea><script>
+function searchBreed() {
+
+  const searchText =
+    document.getElementById("breedSearch")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const puppies =
+    document.querySelectorAll(".puppy-card");
+
+  const noResults =
+    document.getElementById("noResults");
+
+  let found = 0;
+
+  puppies.forEach(function(puppy) {
+
+    const breed =
+      puppy.getAttribute("data-breed")
+      .toLowerCase();
+
+    if (breed.includes(searchText)) {
+      puppy.style.display = "";
+      found++;
+    } else {
+      puppy.style.display = "none";
+    }
+
+  });
+
+  if (found === 0 && searchText !== "") {
+    noResults.style.display = "block";
+  } else {
+    noResults.style.display = "none";
+  }
+
+}
+</script>
 
 <button type="submit">
 
