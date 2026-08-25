@@ -432,42 +432,99 @@ required
 <p id="noResults" class="no-results">
   No puppies found for this breed.
 </p>
-</option><select id="breed" required>
-    <option value="">Select Breed</option>
-    <option value="All Breeds">All Breeds</option>
-    <option value="German Shepherd">German Shepherd</option>
-    <option value="Labrador">Labrador</option>
-    <option value="Husky">Husky</option>
-    <option value="Pomeranian">Pomeranian</option>
-    <option value="French Bulldog">French Bulldog</option>
-    <option value="Golden Retriever">Golden Retriever</option>
-</select>
+<style>
 
-<option>
-German Shepherd
-</option>
+.breed-search-box {
+  width: 100%;
+  max-width: 550px;
+  margin: 20px auto 35px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
 
-<option>
-Labrador
-</option>
+.search-icon {
+  font-size: 22px;
+  margin-right: 10px;
+}
 
-<option>
-Husky
-</option>
+.breed-search-box input {
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+}
 
-<option>
-Pomeranian
-</option>
+.puppy-results {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
 
-<option>
-French Bulldog
-</option>
+.puppy-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
 
-<option>
-Golden Retriever
-</option>
+.puppy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
 
-</select>
+.puppy-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.puppy-card h3,
+.puppy-card p {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.puppy-card h3 {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.puppy-card p {
+  color: #777;
+  margin-bottom: 18px;
+}
+
+.no-results {
+  display: none;
+  text-align: center;
+  color: #777;
+  margin-top: 30px;
+}
+
+@media(max-width: 800px) {
+  .puppy-results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 500px) {
+  .puppy-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
 
 <textarea
 id="message"
