@@ -542,7 +542,178 @@ window.open(
 
 }
 
-</script>
+</script><style>
+.dog-community {
+  padding: 80px 20px;
+  background: #f8f9fb;
+  font-family: Arial, sans-serif;
+}
+
+.community-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.community-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.small-title {
+  color: #e85d04;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.community-heading h2 {
+  font-size: 42px;
+  color: #171717;
+}
+
+.community-heading h2 span {
+  color: #e85d04;
+}
+
+.community-heading p {
+  color: #666;
+  line-height: 1.7;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.community-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 18px;
+  border: 1px solid #eee;
+}
+
+.community-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+.card-icon {
+  font-size: 30px;
+  background: #fff1e8;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+}
+
+.community-card h3 {
+  font-size: 19px;
+}
+
+.community-card p {
+  color: #777;
+  line-height: 1.6;
+}
+
+.card-btn {
+  color: #e85d04;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.community-cta {
+  margin-top: 50px;
+  padding: 40px;
+  background: #171717;
+  color: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cta-button {
+  background: #e85d04;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dog-footer {
+  background: #101010;
+  color: white;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-column a {
+  display: block;
+  color: #999;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+.footer-brand p {
+  color: #999;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+}
+
+@media(max-width: 900px) {
+  .community-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  .community-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .community-heading h2 {
+    font-size: 30px;
+  }
+
+  .community-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+</style>
 <!-- =========================
      DOG COMMUNITY SECTION
      ========================= -->
