@@ -1,633 +1,280 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ShopNexa - Online Shopping</title>
+<title>My Online Store</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
+*{box-sizing:border-box}
 
 body{
-  background:#f4f6f8;
-  color:#222;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#222;
 }
 
 header{
-  background:#111827;
-  color:white;
-  padding:15px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:1000;
+    background:#111;
+    color:white;
+    padding:18px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
-.logo{
-  font-size:27px;
-  font-weight:bold;
+header h1{
+    margin:0 0 8px;
 }
 
-.logo span{
-  color:#00e5ff;
+button{
+    cursor:pointer;
 }
 
-nav a{
-  color:white;
-  text-decoration:none;
-  margin:0 10px;
+.cartBtn,
+.adminBtn{
+    border:0;
+    padding:10px 15px;
+    border-radius:8px;
+    margin:4px;
 }
 
 .cartBtn{
-  background:#00e5ff;
-  color:#111827;
-  border:0;
-  padding:10px 15px;
-  border-radius:20px;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-.hero{
-  background:linear-gradient(135deg,#111827,#164e63);
-  color:white;
-  text-align:center;
-  padding:70px 20px;
-}
-
-.hero h1{
-  font-size:45px;
-  margin-bottom:15px;
-}
-
-.hero p{
-  font-size:18px;
-  margin-bottom:25px;
-}
-
-.btn{
-  background:#00e5ff;
-  color:#111827;
-  border:0;
-  padding:13px 25px;
-  border-radius:25px;
-  font-weight:bold;
-  cursor:pointer;
-  text-decoration:none;
-}
-
-.section{
-  padding:45px 6%;
-}
-
-.section h2{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.categories{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.category{
-  background:white;
-  padding:30px 15px;
-  text-align:center;
-  border-radius:15px;
-  box-shadow:0 4px 15px #0001;
-}
-
-.category-icon{
-  font-size:45px;
-  margin-bottom:10px;
-}
-
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.product{
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 4px 15px #0001;
-}
-
-.product img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  background:#eee;
-}
-
-.product-info{
-  padding:17px;
-}
-
-.product-info h3{
-  margin-bottom:8px;
-}
-
-.price{
-  color:#087f5b;
-  font-size:21px;
-  font-weight:bold;
-  margin:8px 0;
-}
-
-.old{
-  color:#999;
-  text-decoration:line-through;
-  font-size:14px;
-  margin-left:7px;
-}
-
-.stock{
-  color:#555;
-  font-size:14px;
-  margin-bottom:10px;
-}
-
-.addBtn{
-  width:100%;
-  padding:11px;
-  border:0;
-  border-radius:8px;
-  background:#111827;
-  color:white;
-  cursor:pointer;
-}
-
-.addBtn:disabled{
-  background:#aaa;
-  cursor:not-allowed;
-}
-
-footer{
-  background:#111827;
-  color:white;
-  padding:40px 6%;
-  margin-top:30px;
-}
-
-.footerGrid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-}
-
-.whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:#25D366;
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:30px;
-  text-decoration:none;
-  z-index:2000;
-}
-
-/* CART */
-
-.cartPanel{
-  position:fixed;
-  right:-430px;
-  top:0;
-  width:400px;
-  max-width:92%;
-  height:100%;
-  background:white;
-  z-index:3000;
-  padding:25px;
-  box-shadow:-5px 0 20px #0003;
-  transition:.3s;
-  overflow:auto;
-}
-
-.cartPanel.open{
-  right:0;
-}
-
-.close{
-  float:right;
-  font-size:25px;
-  cursor:pointer;
-}
-
-.cartItem{
-  border-bottom:1px solid #ddd;
-  padding:12px 0;
-}
-
-.qtyBtn{
-  padding:4px 9px;
-  margin:5px 2px;
-  cursor:pointer;
-}
-
-.removeBtn{
-  background:#ef4444;
-  color:white;
-  border:0;
-  padding:5px 9px;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-.checkoutBtn{
-  width:100%;
-  padding:13px;
-  border:0;
-  border-radius:8px;
-  background:#25D366;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:15px;
-}
-
-/* ADMIN LOGIN */
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#0008;
-  z-index:5000;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.loginBox,
-.adminBox{
-  background:white;
-  width:95%;
-  max-width:800px;
-  max-height:90vh;
-  overflow:auto;
-  border-radius:15px;
-  padding:25px;
-}
-
-.loginBox{
-  max-width:400px;
-}
-
-.input{
-  width:100%;
-  padding:12px;
-  border:1px solid #ccc;
-  border-radius:7px;
-  margin:7px 0 14px;
+    background:#25d366;
+    color:white;
 }
 
 .adminBtn{
-  padding:11px 18px;
-  border:0;
-  border-radius:7px;
-  cursor:pointer;
-  background:#111827;
-  color:white;
+    background:#ffc107;
+    color:#111;
 }
 
-.green{
-  background:#16a34a;
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    padding:20px;
 }
 
-.red{
-  background:#dc2626;
+.product{
+    background:white;
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 2px 8px #ccc;
 }
 
-.adminTop{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
+.product img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+    border-radius:10px;
 }
 
-.adminProducts{
-  margin-top:25px;
+.product h3{
+    margin:10px 0 5px;
 }
 
-.adminProduct{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  padding:12px 0;
-  border-bottom:1px solid #ddd;
+.price{
+    font-size:20px;
+    font-weight:bold;
+    margin:7px 0;
 }
 
-.adminProduct img{
-  width:70px;
-  height:70px;
-  object-fit:cover;
-  border-radius:8px;
+.product button{
+    width:100%;
+    padding:11px;
+    border:0;
+    border-radius:8px;
+    background:#111;
+    color:white;
 }
 
-.adminActions{
-  margin-left:auto;
-}
-
-.empty{
-  text-align:center;
-  padding:25px;
-  color:#777;
-}
-
-@media(max-width:900px){
-
-  .products,
-  .categories{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  nav{
+.modal{
     display:none;
-  }
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:50;
+    padding:20px;
+    overflow:auto;
 }
 
-@media(max-width:550px){
+.box{
+    background:white;
+    max-width:600px;
+    margin:30px auto;
+    padding:20px;
+    border-radius:15px;
+}
 
-  .products,
-  .categories,
-  .footerGrid{
-    grid-template-columns:1fr;
-  }
+.close{
+    float:right;
+    background:#e53935;
+    color:white;
+    border:0;
+    padding:7px 12px;
+    border-radius:6px;
+}
 
-  .hero h1{
-    font-size:32px;
-  }
+input,
+textarea{
+    width:100%;
+    padding:11px;
+    margin:7px 0;
+    border:1px solid #bbb;
+    border-radius:7px;
+}
+
+.action{
+    width:100%;
+    padding:13px;
+    border:0;
+    border-radius:8px;
+    margin-top:8px;
+    font-weight:bold;
+}
+
+.whatsapp{
+    background:#25d366;
+    color:white;
+}
+
+.pay{
+    background:#4285f4;
+    color:white;
+}
+
+.danger{
+    background:#e53935;
+    color:white;
+}
+
+.add{
+    background:#111;
+    color:white;
+}
+
+.cartItem{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.qty button{
+    padding:4px 9px;
+    margin:2px;
+}
+
+.total{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.small{
+    color:#666;
+    font-size:13px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
-<div class="logo">
-Shop<span>Nexa</span>
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#categories">Categories</a>
-<a href="#products">Products</a>
-<a href="#contact">Contact</a>
-</nav>
+<h1>My Online Store</h1>
 
 <button class="cartBtn" onclick="openCart()">
 🛒 Cart (<span id="cartCount">0</span>)
 </button>
 
-</header>
-
-
-<!-- HOME -->
-
-<section class="hero" id="home">
-
-<h1>Welcome to ShopNexa</h1>
-
-<p>
-Mobile Accessories • Kitchen Products • Electronic Gadgets • Useful Products
-</p>
-
-<a href="#products" class="btn">
-Shop Now
-</a>
-
-</section>
-
-
-<!-- CATEGORIES -->
-
-<section class="section" id="categories">
-
-<h2>Shop By Category</h2>
-
-<div class="categories">
-
-<div class="category">
-<div class="category-icon">📱</div>
-<h3>Mobile Accessories</h3>
-</div>
-
-<div class="category">
-<div class="category-icon">🍳</div>
-<h3>Kitchen Products</h3>
-</div>
-
-<div class="category">
-<div class="category-icon">⚡</div>
-<h3>Electronic Gadgets</h3>
-</div>
-
-<div class="category">
-<div class="category-icon">🛍️</div>
-<h3>Useful Products</h3>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-
-<section class="section" id="products">
-
-<h2>🔥 Our Products</h2>
-
-<div class="products" id="productList"></div>
-
-</section>
-
-
-<!-- PAYMENT -->
-
-<section class="section">
-
-<h2>💳 UPI Payment</h2>
-
-<div style="
-background:white;
-padding:25px;
-max-width:550px;
-margin:auto;
-text-align:center;
-border-radius:15px;
-box-shadow:0 4px 15px #0001;
-">
-
-<p>Pay using any supported UPI app.</p>
-
-<p style="
-margin:15px 0;
-padding:12px;
-background:#f1f5f9;
-border-radius:8px;
-font-weight:bold;
-word-break:break-all;
-">
-bahadursingh63036-1@oksbi
-</p>
-
-<a
-class="btn"
-href="upi://pay?pa=bahadursingh63036-1@oksbi&pn=ShopNexa&cu=INR">
-📲 Pay Now
-</a>
-
-</div>
-
-</section>
-
-
-<!-- FOOTER -->
-
-<footer id="contact">
-
-<div class="footerGrid">
-
-<div>
-<h3>ShopNexa</h3>
-<p>Smart products at great prices.</p>
-</div>
-
-<div>
-<h3>Contact</h3>
-<p>WhatsApp: 9041205060</p>
-<p>UPI: bahadursingh63036-1@oksbi</p>
-</div>
-
-<div>
-<h3>Admin</h3>
-
-<button
-class="adminBtn"
-onclick="openLogin()">
-🔐 Admin Login
+<button class="adminBtn" onclick="openAdminLogin()">
+🔐 Admin
 </button>
 
-</div>
+</header>
 
-</div>
-
-<br>
-
-<center>
-© 2026 ShopNexa. All Rights Reserved.
-</center>
-
-</footer>
-
-
-<!-- WHATSAPP -->
-
-<a
-class="whatsapp"
-href="https://wa.me/919041205060"
-target="_blank">
-💬
-</a>
+<div class="products" id="products"></div>
 
 
 <!-- CART -->
 
-<div class="cartPanel" id="cartPanel">
+<div class="modal" id="cartModal">
 
-<span class="close" onclick="closeCart()">✕</span>
+<div class="box">
+
+<button class="close" onclick="closeModal('cartModal')">X</button>
 
 <h2>🛒 Your Cart</h2>
 
-<br>
-
 <div id="cartItems"></div>
 
-<h3 id="cartTotal">
-Total: ₹0
-</h3>
-
-<button
-class="checkoutBtn"
-onclick="checkoutWhatsApp()">
-📱 Order on WhatsApp
-</button>
-
+<div class="total">
+Total: ₹<span id="cartTotal">0</span>
 </div>
 
+<hr>
 
-<!-- LOGIN MODAL -->
+<h3>Customer Details</h3>
 
-<div class="modal" id="loginModal">
+<input id="customerName" placeholder="Your Name">
 
-<div class="loginBox">
+<input id="customerPhone" placeholder="Mobile Number">
 
-<h2>🔐 Admin Login</h2>
+<textarea id="customerAddress"
+placeholder="Delivery Address"></textarea>
 
-<br>
 
-<label>Username</label>
+<!-- WHATSAPP ORDER -->
 
-<input
-class="input"
-id="username"
-placeholder="Enter username">
-
-<label>Password</label>
-
-<input
-class="input"
-id="password"
-type="password"
-placeholder="Enter password">
-
-<button
-class="adminBtn"
-onclick="login()">
-Login
+<button class="action whatsapp" onclick="whatsappOrder()">
+🟢 WhatsApp Order
 </button>
 
-<button
-class="adminBtn red"
-onclick="closeLogin()">
-Cancel
+
+<!-- PAY ON ORDER -->
+
+<button class="action pay" onclick="payOnOrder()">
+💳 Pay on Order — Google Pay / UPI
 </button>
 
-<p
-id="loginError"
-style="color:red;margin-top:12px;">
+<p class="small">
+Your cart total will be automatically added to the UPI payment request.
 </p>
 
 </div>
+</div>
 
+
+<!-- ADMIN LOGIN -->
+
+<div class="modal" id="loginModal">
+
+<div class="box">
+
+<button class="close" onclick="closeModal('loginModal')">X</button>
+
+<h2>🔐 Admin Login</h2>
+
+<input
+type="text"
+id="adminUser"
+placeholder="Username">
+
+<input
+type="password"
+id="adminPass"
+placeholder="Password">
+
+<button class="action add" onclick="adminLogin()">
+Login
+</button>
+
+</div>
 </div>
 
 
@@ -635,354 +282,158 @@ style="color:red;margin-top:12px;">
 
 <div class="modal" id="adminModal">
 
-<div class="adminBox">
+<div class="box">
 
-<div class="adminTop">
+<button class="close" onclick="closeModal('adminModal')">X</button>
 
-<h2>⚙️ ShopNexa Admin Panel</h2>
+<h2>⚙️ Admin Panel</h2>
 
-<button
-class="adminBtn red"
-onclick="logout()">
-Logout
-</button>
+<input
+id="pName"
+placeholder="Product Name">
 
-</div>
+<input
+id="pPrice"
+type="number"
+placeholder="Price">
 
+<input
+id="pStock"
+type="number"
+placeholder="Stock">
 
-<h3 id="formTitle">
+<input
+id="pImage"
+placeholder="Image URL">
+
+<button class="action add" onclick="addProduct()">
 ➕ Add Product
-</h3>
-
-<br>
-
-<label>Product Name</label>
-
-<input
-class="input"
-id="productName"
-placeholder="Example: Wireless Earbuds">
-
-
-<label>Category</label>
-
-<select
-class="input"
-id="productCategory">
-
-<option>Mobile Accessories</option>
-<option>Kitchen Products</option>
-<option>Electronic Gadgets</option>
-<option>Useful Products</option>
-
-</select>
-
-
-<label>Selling Price (₹)</label>
-
-<input
-class="input"
-id="productPrice"
-type="number"
-placeholder="699">
-
-
-<label>Old Price (₹)</label>
-
-<input
-class="input"
-id="productOldPrice"
-type="number"
-placeholder="999">
-
-
-<label>Stock</label>
-
-<input
-class="input"
-id="productStock"
-type="number"
-placeholder="10">
-
-
-<label>Description</label>
-
-<textarea
-class="input"
-id="productDescription"
-rows="4"
-placeholder="Product description"></textarea>
-
-
-<label>Product Image</label>
-
-<input
-class="input"
-id="productImage"
-type="file"
-accept="image/*"
-onchange="previewImage(event)">
-
-<img
-id="imagePreview"
-style="
-display:none;
-width:130px;
-height:130px;
-object-fit:cover;
-border-radius:10px;
-margin-bottom:15px;
-">
-
-
-<br>
-
-<button
-class="adminBtn green"
-onclick="saveProduct()">
-💾 Save Product
 </button>
-
-<button
-class="adminBtn"
-onclick="clearForm()">
-Clear
-</button>
-
-<br><br>
 
 <hr>
 
-<br>
+<h3>Products</h3>
 
-<h3>📦 Manage Products</h3>
-
-<div
-class="adminProducts"
-id="adminProductList">
-</div>
+<div id="adminProducts"></div>
 
 </div>
-
 </div>
 
 
 <script>
 
-/* =========================
-   ADMIN LOGIN
-========================= */
+/* =====================================
+   YOUR PAYMENT & WHATSAPP SETTINGS
+===================================== */
 
-const ADMIN_USERNAME = "admin";
-const ADMIN_PASSWORD = "password";
+const UPI_ID = "bahadursingh63036-1@oksbi";
 
-function openLogin(){
-
-document
-.getElementById("loginModal")
-.classList.add("show");
-
-}
-
-function closeLogin(){
-
-document
-.getElementById("loginModal")
-.classList.remove("show");
-
-}
-
-function login(){
-
-let username =
-document.getElementById("username").value;
-
-let password =
-document.getElementById("password").value;
-
-if(
-username === ADMIN_USERNAME &&
-password === ADMIN_PASSWORD
-){
-
-closeLogin();
-
-document
-.getElementById("adminModal")
-.classList.add("show");
-
-document.getElementById("loginError").innerText="";
-
-loadAdminProducts();
-
-}else{
-
-document.getElementById("loginError").innerText =
-"❌ Wrong username or password";
-
-}
-
-}
-
-function logout(){
-
-document
-.getElementById("adminModal")
-.classList.remove("show");
-
-}
+const WHATSAPP_NUMBER = "919041205060";
 
 
-/* =========================
+/* =====================================
    PRODUCTS
-========================= */
+===================================== */
 
 let products =
-JSON.parse(localStorage.getItem("shopnexa_products")) || [];
-
-
-/* DEFAULT PRODUCTS */
-
-if(products.length === 0){
-
-products = [
+JSON.parse(localStorage.getItem("products")) || [
 
 {
-id:Date.now()+1,
-name:"Fast Charging Cable",
-category:"Mobile Accessories",
-price:299,
-oldPrice:499,
+id:1,
+name:"Premium Wireless AirBuds",
+price:999,
 stock:10,
-description:"Fast and reliable charging cable.",
-image:"https://via.placeholder.com/500x400?text=Charging+Cable"
+image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=600&q=80"
 },
 
 {
-id:Date.now()+2,
-name:"Wireless Earbuds",
-category:"Electronic Gadgets",
-price:699,
-oldPrice:999,
+id:2,
+name:"Smart Watch",
+price:1499,
 stock:8,
-description:"Compact wireless earbuds.",
-image:"https://via.placeholder.com/500x400?text=Wireless+Earbuds"
+image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
 },
 
 {
-id:Date.now()+3,
-name:"Kitchen Gadget Set",
-category:"Kitchen Products",
-price:399,
-oldPrice:599,
-stock:15,
-description:"Useful kitchen accessories.",
-image:"https://via.placeholder.com/500x400?text=Kitchen+Set"
-},
-
-{
-id:Date.now()+4,
-name:"Mini LED Light",
-category:"Useful Products",
-price:249,
-oldPrice:399,
-stock:20,
-description:"Portable LED light.",
-image:"https://via.placeholder.com/500x400?text=Mini+LED"
+id:3,
+name:"Bluetooth Speaker",
+price:799,
+stock:12,
+image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80"
 }
 
 ];
 
-saveProducts();
 
-}
+let cart =
+JSON.parse(localStorage.getItem("cart")) || [];
 
+
+/* =====================================
+   SAVE
+===================================== */
 
 function saveProducts(){
 
 localStorage.setItem(
-"shopnexa_products",
+"products",
 JSON.stringify(products)
 );
 
 }
 
+function saveCart(){
 
-/* =========================
-   SHOW PRODUCTS
-========================= */
-
-function displayProducts(){
-
-let list =
-document.getElementById("productList");
-
-if(products.length === 0){
-
-list.innerHTML =
-'<div class="empty">No products available.</div>';
-
-return;
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
 
 }
 
-let html = "";
 
-products.forEach(product => {
+/* =====================================
+   DISPLAY PRODUCTS
+===================================== */
 
-let soldOut =
-Number(product.stock) <= 0;
+function renderProducts(){
 
-html += `
+const box =
+document.getElementById("products");
+
+box.innerHTML="";
+
+products.forEach(p=>{
+
+box.innerHTML += `
 
 <div class="product">
 
 <img
-src="${product.image}"
-alt="${product.name}">
+src="${p.image}"
+alt="${p.name}">
 
-<div class="product-info">
-
-<h3>${product.name}</h3>
-
-<p style="font-size:13px;color:#777;">
-${product.category}
-</p>
+<h3>${p.name}</h3>
 
 <div class="price">
-
-₹${product.price}
-
-<span class="old">
-₹${product.oldPrice}
-</span>
-
+₹${p.price}
 </div>
 
-<p class="stock">
+<div class="small">
+Stock: ${p.stock}
+</div>
 
-${
-soldOut
-? "❌ Out of Stock"
-: "📦 Stock: " + product.stock
-}
-
-</p>
-
-<p style="margin-bottom:12px;">
-${product.description}
-</p>
+<br>
 
 <button
-class="addBtn"
-${soldOut ? "disabled" : ""}
-onclick="addToCart(${product.id})">
+onclick="addToCart(${p.id})"
+${p.stock<=0 ? "disabled" : ""}>
 
-${soldOut ? "Out of Stock" : "🛒 Add to Cart"}
+${p.stock<=0
+? "Out of Stock"
+: "Add to Cart"}
 
 </button>
-
-</div>
 
 </div>
 
@@ -990,356 +441,19 @@ ${soldOut ? "Out of Stock" : "🛒 Add to Cart"}
 
 });
 
-list.innerHTML = html;
-
 }
 
 
-/* =========================
-   ADMIN PRODUCT LIST
-========================= */
-
-function loadAdminProducts(){
-
-let list =
-document.getElementById("adminProductList");
-
-if(products.length === 0){
-
-list.innerHTML =
-'<p class="empty">No products.</p>';
-
-return;
-
-}
-
-let html = "";
-
-products.forEach(product => {
-
-html += `
-
-<div class="adminProduct">
-
-<img src="${product.image}">
-
-<div>
-
-<strong>${product.name}</strong>
-
-<p>₹${product.price}</p>
-
-<p>Stock: ${product.stock}</p>
-
-</div>
-
-<div class="adminActions">
-
-<button
-class="adminBtn"
-onclick="editProduct(${product.id})">
-✏️ Edit
-</button>
-
-<button
-class="adminBtn red"
-onclick="deleteProduct(${product.id})">
-🗑️ Delete
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-list.innerHTML = html;
-
-}
-
-
-/* =========================
-   IMAGE UPLOAD
-========================= */
-
-let selectedImage = "";
-
-function previewImage(event){
-
-let file =
-event.target.files[0];
-
-if(!file) return;
-
-let reader =
-new FileReader();
-
-reader.onload = function(e){
-
-selectedImage = e.target.result;
-
-let preview =
-document.getElementById("imagePreview");
-
-preview.src =
-selectedImage;
-
-preview.style.display =
-"block";
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-/* =========================
-   ADD / EDIT PRODUCT
-========================= */
-
-let editingId = null;
-
-function saveProduct(){
-
-let name =
-document.getElementById("productName").value.trim();
-
-let category =
-document.getElementById("productCategory").value;
-
-let price =
-document.getElementById("productPrice").value;
-
-let oldPrice =
-document.getElementById("productOldPrice").value;
-
-let stock =
-document.getElementById("productStock").value;
-
-let description =
-document.getElementById("productDescription").value.trim();
-
-
-if(!name || !price || !stock){
-
-alert("Please enter Product Name, Price and Stock.");
-
-return;
-
-}
-
-
-/* ADD */
-
-if(editingId === null){
-
-if(!selectedImage){
-
-selectedImage =
-"https://via.placeholder.com/500x400?text=ShopNexa+Product";
-
-}
-
-products.push({
-
-id:Date.now(),
-
-name:name,
-
-category:category,
-
-price:Number(price),
-
-oldPrice:Number(oldPrice || price),
-
-stock:Number(stock),
-
-description:description,
-
-image:selectedImage
-
-});
-
-alert("✅ Product added successfully!");
-
-}
-
-
-/* EDIT */
-
-else{
-
-let product =
-products.find(p => p.id === editingId);
-
-product.name = name;
-
-product.category = category;
-
-product.price = Number(price);
-
-product.oldPrice = Number(oldPrice || price);
-
-product.stock = Number(stock);
-
-product.description = description;
-
-if(selectedImage){
-
-product.image =
-selectedImage;
-
-}
-
-alert("✅ Product updated successfully!");
-
-}
-
-
-saveProducts();
-
-displayProducts();
-
-loadAdminProducts();
-
-clearForm();
-
-}
-
-
-/* =========================
-   EDIT PRODUCT
-========================= */
-
-function editProduct(id){
-
-let product =
-products.find(p => p.id === id);
-
-if(!product) return;
-
-editingId = id;
-
-document.getElementById("formTitle").innerText =
-"✏️ Edit Product";
-
-document.getElementById("productName").value =
-product.name;
-
-document.getElementById("productCategory").value =
-product.category;
-
-document.getElementById("productPrice").value =
-product.price;
-
-document.getElementById("productOldPrice").value =
-product.oldPrice;
-
-document.getElementById("productStock").value =
-product.stock;
-
-document.getElementById("productDescription").value =
-product.description;
-
-selectedImage = "";
-
-let preview =
-document.getElementById("imagePreview");
-
-preview.src =
-product.image;
-
-preview.style.display =
-"block";
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-/* =========================
-   DELETE PRODUCT
-========================= */
-
-function deleteProduct(id){
-
-let product =
-products.find(p => p.id === id);
-
-if(!product) return;
-
-let confirmDelete =
-confirm(
-"Delete " +
-product.name +
-"?");
-
-if(!confirmDelete) return;
-
-products =
-products.filter(p => p.id !== id);
-
-saveProducts();
-
-displayProducts();
-
-loadAdminProducts();
-
-alert("🗑️ Product deleted.");
-
-}
-
-
-/* =========================
-   CLEAR FORM
-========================= */
-
-function clearForm(){
-
-editingId = null;
-
-selectedImage = "";
-
-document.getElementById("formTitle").innerText =
-"➕ Add Product";
-
-document.getElementById("productName").value = "";
-
-document.getElementById("productPrice").value = "";
-
-document.getElementById("productOldPrice").value = "";
-
-document.getElementById("productStock").value = "";
-
-document.getElementById("productDescription").value = "";
-
-document.getElementById("productImage").value = "";
-
-document.getElementById("imagePreview").style.display =
-"none";
-
-}
-
-
-/* =========================
-   CART
-========================= */
-
-let cart = [];
-
+/* =====================================
+   ADD TO CART
+===================================== */
 
 function addToCart(id){
 
-let product =
-products.find(p => p.id === id);
+const product =
+products.find(p=>p.id===id);
 
-if(!product || product.stock <= 0){
+if(!product || product.stock<=0){
 
 alert("Product is out of stock.");
 
@@ -1347,103 +461,547 @@ return;
 
 }
 
-let existing =
-cart.find(item => item.id === id);
+const existing =
+cart.find(i=>i.id===id);
 
 if(existing){
 
-if(existing.quantity < product.stock){
+if(existing.qty >= product.stock){
 
-existing.quantity++;
-
-}else{
-
-alert("Maximum available stock reached.");
+alert("Stock limit reached.");
 
 return;
 
 }
+
+existing.qty++;
 
 }else{
 
 cart.push({
 id:id,
-quantity:1
+qty:1
 });
 
 }
 
+saveCart();
+
 updateCart();
 
-alert(product.name + " added to cart!");
+alert("Product added to cart.");
 
 }
 
 
+/* =====================================
+   CART
+===================================== */
+
 function updateCart(){
 
 document.getElementById("cartCount").innerText =
-cart.reduce((sum,item) =>
-sum + item.quantity,0);
+cart.reduce(
+(sum,i)=>sum+i.qty,
+0
+);
 
-let box =
+}
+
+
+function openCart(){
+
+renderCart();
+
+document.getElementById("cartModal")
+.style.display="block";
+
+}
+
+
+function renderCart(){
+
+const box =
 document.getElementById("cartItems");
 
-if(cart.length === 0){
+box.innerHTML="";
 
-box.innerHTML =
-'<p class="empty">Your cart is empty.</p>';
+let total=0;
 
-document.getElementById("cartTotal").innerText =
-"Total: ₹0";
+cart.forEach(item=>{
+
+const product =
+products.find(p=>p.id===item.id);
+
+if(!product) return;
+
+const amount =
+product.price * item.qty;
+
+total += amount;
+
+box.innerHTML += `
+
+<div class="cartItem">
+
+<div>
+
+<b>${product.name}</b>
+
+<br>
+
+₹${product.price} × ${item.qty}
+
+</div>
+
+<div class="qty">
+
+<button
+onclick="changeQty(${item.id},-1)">
+−
+</button>
+
+${item.qty}
+
+<button
+onclick="changeQty(${item.id},1)">
++
+</button>
+
+<button
+onclick="removeFromCart(${item.id})">
+❌
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+document.getElementById("cartTotal")
+.innerText=total;
+
+}
+
+
+function changeQty(id,change){
+
+const item =
+cart.find(i=>i.id===id);
+
+const product =
+products.find(p=>p.id===id);
+
+if(!item || !product) return;
+
+item.qty += change;
+
+if(item.qty<=0){
+
+cart =
+cart.filter(i=>i.id!==id);
+
+}
+
+if(item.qty>product.stock){
+
+item.qty=product.stock;
+
+alert("Maximum available stock reached.");
+
+}
+
+saveCart();
+
+updateCart();
+
+renderCart();
+
+}
+
+
+function removeFromCart(id){
+
+cart =
+cart.filter(i=>i.id!==id);
+
+saveCart();
+
+updateCart();
+
+renderCart();
+
+}
+
+
+/* =====================================
+   TOTAL
+===================================== */
+
+function getTotal(){
+
+let total=0;
+
+cart.forEach(item=>{
+
+const product =
+products.find(p=>p.id===item.id);
+
+if(product){
+
+total +=
+product.price * item.qty;
+
+}
+
+});
+
+return total;
+
+}
+
+
+/* =====================================
+   WHATSAPP ORDER
+===================================== */
+
+function whatsappOrder(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
 
 return;
 
 }
 
-let html = "";
-let total = 0;
+const name =
+document.getElementById("customerName")
+.value.trim();
 
-cart.forEach(item => {
+const phone =
+document.getElementById("customerPhone")
+.value.trim();
 
-let product =
-products.find(p => p.id === item.id);
+const address =
+document.getElementById("customerAddress")
+.value.trim();
 
-if(!product) return;
 
-let itemTotal =
-product.price * item.quantity;
+if(!name || !phone || !address){
 
-total += itemTotal;
+alert(
+"Please fill Name, Mobile Number and Address."
+);
 
-html += `
+return;
 
-<div class="cartItem">
+}
 
-<strong>${product.name}</strong>
 
-<p>
-₹${product.price} × ${item.quantity}
-=
-₹${itemTotal}
-</p>
+let message =
+"🛍️ NEW ORDER\n\n";
+
+message +=
+"👤 Name: " + name + "\n";
+
+message +=
+"📞 Mobile: " + phone + "\n";
+
+message +=
+"📍 Address: " + address + "\n\n";
+
+message +=
+"Products:\n";
+
+
+cart.forEach(item=>{
+
+const product =
+products.find(p=>p.id===item.id);
+
+if(product){
+
+message +=
+product.name +
+" × " +
+item.qty +
+" = ₹" +
+(product.price * item.qty) +
+"\n";
+
+}
+
+});
+
+
+message +=
+"\n💰 Total: ₹" + getTotal();
+
+
+const whatsappURL =
+"https://wa.me/" +
+WHATSAPP_NUMBER +
+"?text=" +
+encodeURIComponent(message);
+
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+}
+
+
+/* =====================================
+   PAY ON ORDER
+===================================== */
+
+function payOnOrder(){
+
+if(cart.length===0){
+
+alert("Your cart is empty.");
+
+return;
+
+}
+
+const name =
+document.getElementById("customerName")
+.value.trim();
+
+const phone =
+document.getElementById("customerPhone")
+.value.trim();
+
+
+if(!name || !phone){
+
+alert(
+"Please enter your Name and Mobile Number first."
+);
+
+return;
+
+}
+
+
+const total = getTotal();
+
+
+if(total<=0){
+
+alert("Invalid payment amount.");
+
+return;
+
+}
+
+
+/*
+   UPI PAYMENT REQUEST
+
+   pa = UPI ID
+   pn = Store Name
+   am = Cart Total
+   cu = INR
+*/
+
+const upiLink =
+"upi://pay" +
+"?pa=" +
+encodeURIComponent(UPI_ID) +
+"&pn=" +
+encodeURIComponent("My Online Store") +
+"&am=" +
+encodeURIComponent(total.toFixed(2)) +
+"&cu=INR" +
+"&tn=" +
+encodeURIComponent(
+"Order - " + name + " - " + phone
+);
+
+
+/*
+   Open UPI / Google Pay
+*/
+
+window.location.href = upiLink;
+
+}
+
+
+/* =====================================
+   ADMIN LOGIN
+===================================== */
+
+function openAdminLogin(){
+
+document.getElementById("loginModal")
+.style.display="block";
+
+}
+
+
+function adminLogin(){
+
+const user =
+document.getElementById("adminUser").value;
+
+const pass =
+document.getElementById("adminPass").value;
+
+
+/*
+   ADMIN LOGIN
+
+   Username: admin
+   Password: password
+*/
+
+if(
+user==="admin" &&
+pass==="password"
+){
+
+closeModal("loginModal");
+
+document.getElementById("adminModal")
+.style.display="block";
+
+renderAdminProducts();
+
+}else{
+
+alert(
+"Wrong username or password."
+);
+
+}
+
+}
+
+
+/* =====================================
+   ADD PRODUCT
+===================================== */
+
+function addProduct(){
+
+const name =
+document.getElementById("pName")
+.value.trim();
+
+const price =
+Number(
+document.getElementById("pPrice")
+.value
+);
+
+const stock =
+Number(
+document.getElementById("pStock")
+.value
+);
+
+const image =
+document.getElementById("pImage")
+.value.trim();
+
+
+if(
+!name ||
+!price ||
+stock<0 ||
+!image
+){
+
+alert(
+"Please fill all product details."
+);
+
+return;
+
+}
+
+
+products.push({
+
+id:Date.now(),
+
+name:name,
+
+price:price,
+
+stock:stock,
+
+image:image
+
+});
+
+
+saveProducts();
+
+renderProducts();
+
+renderAdminProducts();
+
+
+document.getElementById("pName").value="";
+document.getElementById("pPrice").value="";
+document.getElementById("pStock").value="";
+document.getElementById("pImage").value="";
+
+
+alert(
+"Product added successfully."
+);
+
+}
+
+
+/* =====================================
+   ADMIN PRODUCTS
+===================================== */
+
+function renderAdminProducts(){
+
+const box =
+document.getElementById("adminProducts");
+
+box.innerHTML="";
+
+products.forEach(p=>{
+
+box.innerHTML += `
+
+<div
+style="
+border-bottom:1px solid #ddd;
+padding:10px 0
+">
+
+<b>${p.name}</b>
+
+<br>
+
+Price: ₹${p.price}
+
+<br>
+
+Stock: ${p.stock}
 
 <button
-class="qtyBtn"
-onclick="changeQuantity(${product.id},-1)">
-−
-</button>
+class="action danger"
+onclick="deleteProduct(${p.id})">
 
-<button
-class="qtyBtn"
-onclick="changeQuantity(${product.id},1)">
-+
-</button>
+Delete
 
-<button
-class="removeBtn"
-onclick="removeFromCart(${product.id})">
-Remove
 </button>
 
 </div>
@@ -1452,141 +1010,65 @@ Remove
 
 });
 
-box.innerHTML = html;
-
-document.getElementById("cartTotal").innerText =
-"Total: ₹" + total;
-
 }
 
 
-function changeQuantity(id,change){
+/* =====================================
+   DELETE PRODUCT
+===================================== */
 
-let item =
-cart.find(i => i.id === id);
+function deleteProduct(id){
 
-let product =
-products.find(p => p.id === id);
-
-if(!item || !product) return;
-
-let newQuantity =
-item.quantity + change;
-
-if(newQuantity <= 0){
-
-removeFromCart(id);
+if(
+!confirm("Delete this product?")
+){
 
 return;
 
 }
 
-if(newQuantity > product.stock){
-
-alert("Only " + product.stock + " items available.");
-
-return;
-
-}
-
-item.quantity =
-newQuantity;
-
-updateCart();
-
-}
-
-
-function removeFromCart(id){
-
-cart =
-cart.filter(item => item.id !== id);
-
-updateCart();
-
-}
-
-
-function openCart(){
-
-document
-.getElementById("cartPanel")
-.classList.add("open");
-
-}
-
-function closeCart(){
-
-document
-.getElementById("cartPanel")
-.classList.remove("open");
-
-}
-
-
-/* =========================
-   WHATSAPP ORDER
-========================= */
-
-function checkoutWhatsApp(){
-
-if(cart.length === 0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-let message =
-"Hello ShopNexa 👋\n\n" +
-"I want to place an order:\n\n";
-
-let total = 0;
-
-cart.forEach((item,index) => {
-
-let product =
-products.find(p => p.id === item.id);
-
-if(!product) return;
-
-let itemTotal =
-product.price * item.quantity;
-
-total += itemTotal;
-
-message +=
-(index+1) +
-". " +
-product.name +
-" × " +
-item.quantity +
-" = ₹" +
-itemTotal +
-"\n";
-
-});
-
-message +=
-"\nTotal: ₹" +
-total +
-"\n\nPlease confirm my order.";
-
-window.open(
-"https://wa.me/919041205060?text=" +
-encodeURIComponent(message),
-"_blank"
+products =
+products.filter(
+p=>p.id!==id
 );
 
+cart =
+cart.filter(
+i=>products.some(
+p=>p.id===i.id
+)
+);
+
+saveProducts();
+
+saveCart();
+
+renderProducts();
+
+updateCart();
+
+renderAdminProducts();
+
 }
 
 
-/* =========================
-   START WEBSITE
-========================= */
+/* =====================================
+   CLOSE MODALS
+===================================== */
 
-displayProducts();
+function closeModal(id){
+
+document.getElementById(id)
+.style.display="none";
+
+}
+
+
+/* =====================================
+   START WEBSITE
+===================================== */
+
+renderProducts();
 
 updateCart();
 
@@ -1594,3 +1076,4 @@ updateCart();
 
 </body>
 </html>
+
