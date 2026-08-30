@@ -1,368 +1,386 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ShopNexa | Smart Shopping Store</title>
-
-<meta name="description"
-content="ShopNexa - Mobile Accessories, Kitchen Products, Electronic Gadgets and Useful Products.">
+<title>ShopNexa - Online Shopping</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f5f7fb;
-    color:#222;
+  background:#f4f6f8;
+  color:#222;
 }
 
 header{
-    background:#111827;
-    color:white;
-    padding:15px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
+  background:#111827;
+  color:white;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .logo{
-    font-size:27px;
-    font-weight:bold;
+  font-size:27px;
+  font-weight:bold;
 }
 
 .logo span{
-    color:#00e5ff;
+  color:#00e5ff;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
+  color:white;
+  text-decoration:none;
+  margin:0 10px;
 }
 
-.cart{
-    background:#00e5ff;
-    color:#111827;
-    padding:9px 15px;
-    border-radius:20px;
-    font-weight:bold;
-    cursor:pointer;
+.cartBtn{
+  background:#00e5ff;
+  color:#111827;
+  border:0;
+  padding:10px 15px;
+  border-radius:20px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 .hero{
-    background:linear-gradient(135deg,#111827,#164e63);
-    color:white;
-    padding:75px 7%;
-    text-align:center;
+  background:linear-gradient(135deg,#111827,#164e63);
+  color:white;
+  text-align:center;
+  padding:70px 20px;
 }
 
 .hero h1{
-    font-size:45px;
-    margin-bottom:15px;
+  font-size:45px;
+  margin-bottom:15px;
 }
 
 .hero p{
-    font-size:19px;
-    margin-bottom:25px;
+  font-size:18px;
+  margin-bottom:25px;
 }
 
 .btn{
-    display:inline-block;
-    background:#00e5ff;
-    color:#111827;
-    padding:13px 27px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:bold;
-    border:none;
-    cursor:pointer;
+  background:#00e5ff;
+  color:#111827;
+  border:0;
+  padding:13px 25px;
+  border-radius:25px;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
 }
 
 .section{
-    padding:50px 6%;
+  padding:45px 6%;
 }
 
 .section h2{
-    text-align:center;
-    margin-bottom:30px;
-    font-size:30px;
+  text-align:center;
+  margin-bottom:30px;
 }
 
-.categories,
-.products,
-.features{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.category,
-.product,
-.feature{
-    background:white;
-    border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
+.categories{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
 .category{
-    padding:30px 15px;
-    text-align:center;
-    cursor:pointer;
+  background:white;
+  padding:30px 15px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0 4px 15px #0001;
 }
 
-.category:hover,
-.product:hover{
-    transform:translateY(-5px);
+.category-icon{
+  font-size:45px;
+  margin-bottom:10px;
 }
 
-.icon{
-    font-size:45px;
-    margin-bottom:12px;
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
 .product{
-    overflow:hidden;
-    transition:.3s;
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 15px #0001;
 }
 
-.product-img{
-    height:190px;
-    background:#e5e7eb;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:65px;
+.product img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  background:#eee;
 }
 
 .product-info{
-    padding:18px;
+  padding:17px;
 }
 
 .product-info h3{
-    margin-bottom:8px;
+  margin-bottom:8px;
 }
 
 .price{
-    font-size:21px;
-    font-weight:bold;
-    color:#0f766e;
-    margin:10px 0;
+  color:#087f5b;
+  font-size:21px;
+  font-weight:bold;
+  margin:8px 0;
 }
 
-.old-price{
-    color:#999;
-    text-decoration:line-through;
-    font-size:14px;
-    margin-left:5px;
+.old{
+  color:#999;
+  text-decoration:line-through;
+  font-size:14px;
+  margin-left:7px;
 }
 
-.add-btn{
-    width:100%;
-    padding:11px;
-    background:#111827;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    margin-top:12px;
+.stock{
+  color:#555;
+  font-size:14px;
+  margin-bottom:10px;
 }
 
-.add-btn:hover{
-    background:#00a9c0;
+.addBtn{
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:8px;
+  background:#111827;
+  color:white;
+  cursor:pointer;
 }
 
-.feature{
-    padding:25px;
-    text-align:center;
-}
-
-.feature-icon{
-    font-size:38px;
-}
-
-.feature h3{
-    margin:10px 0;
-}
-
-.payment-box{
-    max-width:600px;
-    margin:auto;
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 4px 20px rgba(0,0,0,.1);
-}
-
-.payment-box h2{
-    margin-bottom:15px;
-}
-
-.upi-id{
-    background:#f1f5f9;
-    padding:13px;
-    border-radius:8px;
-    margin:15px 0;
-    font-weight:bold;
-    word-break:break-all;
-}
-
-.upi-btn{
-    display:inline-block;
-    background:#111827;
-    color:white;
-    padding:13px 25px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-.payment-note{
-    margin-top:15px;
-    color:#666;
-    font-size:14px;
+.addBtn:disabled{
+  background:#aaa;
+  cursor:not-allowed;
 }
 
 footer{
-    background:#111827;
-    color:white;
-    padding:40px 6%;
+  background:#111827;
+  color:white;
+  padding:40px 6%;
+  margin-top:30px;
 }
 
-.footer-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-}
-
-footer a{
-    color:#ddd;
-    text-decoration:none;
-    display:block;
-    margin:8px 0;
+.footerGrid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
 }
 
 .whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:#25D366;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    text-decoration:none;
-    z-index:2000;
-    box-shadow:0 4px 15px rgba(0,0,0,.25);
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  text-decoration:none;
+  z-index:2000;
 }
 
-.cart-box{
-    position:fixed;
-    right:-420px;
-    top:0;
-    width:380px;
-    max-width:92%;
-    height:100%;
-    background:white;
-    z-index:3000;
-    box-shadow:-5px 0 20px rgba(0,0,0,.2);
-    padding:25px;
-    transition:.3s;
-    overflow-y:auto;
+/* CART */
+
+.cartPanel{
+  position:fixed;
+  right:-430px;
+  top:0;
+  width:400px;
+  max-width:92%;
+  height:100%;
+  background:white;
+  z-index:3000;
+  padding:25px;
+  box-shadow:-5px 0 20px #0003;
+  transition:.3s;
+  overflow:auto;
 }
 
-.cart-box.open{
-    right:0;
+.cartPanel.open{
+  right:0;
 }
 
-.close-cart{
-    float:right;
-    font-size:25px;
-    cursor:pointer;
+.close{
+  float:right;
+  font-size:25px;
+  cursor:pointer;
 }
 
-.cart-box h2{
-    margin-bottom:20px;
+.cartItem{
+  border-bottom:1px solid #ddd;
+  padding:12px 0;
 }
 
-.cart-item{
-    padding:13px 0;
-    border-bottom:1px solid #ddd;
+.qtyBtn{
+  padding:4px 9px;
+  margin:5px 2px;
+  cursor:pointer;
 }
 
-.remove-btn{
-    margin-top:7px;
-    border:none;
-    background:#ef4444;
-    color:white;
-    padding:6px 10px;
-    border-radius:5px;
-    cursor:pointer;
+.removeBtn{
+  background:#ef4444;
+  color:white;
+  border:0;
+  padding:5px 9px;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-.checkout{
-    margin-top:15px;
-    width:100%;
-    background:#25D366;
-    color:white;
-    border:none;
-    padding:13px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
+.checkoutBtn{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:8px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:15px;
 }
 
-.pay-cart{
-    margin-top:10px;
-    width:100%;
-    background:#111827;
-    color:white;
-    border:none;
-    padding:13px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
+/* ADMIN LOGIN */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:5000;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.loginBox,
+.adminBox{
+  background:white;
+  width:95%;
+  max-width:800px;
+  max-height:90vh;
+  overflow:auto;
+  border-radius:15px;
+  padding:25px;
+}
+
+.loginBox{
+  max-width:400px;
+}
+
+.input{
+  width:100%;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:7px;
+  margin:7px 0 14px;
+}
+
+.adminBtn{
+  padding:11px 18px;
+  border:0;
+  border-radius:7px;
+  cursor:pointer;
+  background:#111827;
+  color:white;
+}
+
+.green{
+  background:#16a34a;
+}
+
+.red{
+  background:#dc2626;
+}
+
+.adminTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.adminProducts{
+  margin-top:25px;
+}
+
+.adminProduct{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:12px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.adminProduct img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.adminActions{
+  margin-left:auto;
+}
+
+.empty{
+  text-align:center;
+  padding:25px;
+  color:#777;
 }
 
 @media(max-width:900px){
 
-    .categories,
-    .products,
-    .features{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .products,
+  .categories{
+    grid-template-columns:repeat(2,1fr);
+  }
 
-    nav{
-        display:none;
-    }
+  nav{
+    display:none;
+  }
 }
 
 @media(max-width:550px){
 
-    .hero h1{
-        font-size:32px;
-    }
+  .products,
+  .categories,
+  .footerGrid{
+    grid-template-columns:1fr;
+  }
 
-    .categories,
-    .products,
-    .features,
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
+  .hero h1{
+    font-size:32px;
+  }
 }
 </style>
 </head>
@@ -381,25 +399,24 @@ Shop<span>Nexa</span>
 <a href="#home">Home</a>
 <a href="#categories">Categories</a>
 <a href="#products">Products</a>
-<a href="#payment">Payment</a>
 <a href="#contact">Contact</a>
 </nav>
 
-<div class="cart" onclick="openCart()">
+<button class="cartBtn" onclick="openCart()">
 🛒 Cart (<span id="cartCount">0</span>)
-</div>
+</button>
 
 </header>
 
 
-<!-- HERO -->
+<!-- HOME -->
 
 <section class="hero" id="home">
 
 <h1>Welcome to ShopNexa</h1>
 
 <p>
-Smart Products • Great Prices • Easy Shopping
+Mobile Accessories • Kitchen Products • Electronic Gadgets • Useful Products
 </p>
 
 <a href="#products" class="btn">
@@ -418,27 +435,23 @@ Shop Now
 <div class="categories">
 
 <div class="category">
-<div class="icon">📱</div>
+<div class="category-icon">📱</div>
 <h3>Mobile Accessories</h3>
-<p>Smart accessories for your phone</p>
 </div>
 
 <div class="category">
-<div class="icon">🍳</div>
+<div class="category-icon">🍳</div>
 <h3>Kitchen Products</h3>
-<p>Useful products for your kitchen</p>
 </div>
 
 <div class="category">
-<div class="icon">⚡</div>
+<div class="category-icon">⚡</div>
 <h3>Electronic Gadgets</h3>
-<p>Trending gadgets & electronics</p>
 </div>
 
 <div class="category">
-<div class="icon">🛍️</div>
+<div class="category-icon">🛍️</div>
 <h3>Useful Products</h3>
-<p>Small things for everyday life</p>
 </div>
 
 </div>
@@ -450,183 +463,47 @@ Shop Now
 
 <section class="section" id="products">
 
-<h2>🔥 Trending Products</h2>
+<h2>🔥 Our Products</h2>
 
-<div class="products">
-
-
-<div class="product">
-
-<div class="product-img">
-🔌
-</div>
-
-<div class="product-info">
-
-<h3>Fast Charging Cable</h3>
-
-<div class="price">
-₹299
-<span class="old-price">₹499</span>
-</div>
-
-<p>Fast & reliable charging cable.</p>
-
-<button class="add-btn"
-onclick="addToCart('Fast Charging Cable',299)">
-Add to Cart
-</button>
-
-</div>
-</div>
-
-
-<div class="product">
-
-<div class="product-img">
-🎧
-</div>
-
-<div class="product-info">
-
-<h3>Wireless Earbuds</h3>
-
-<div class="price">
-₹699
-<span class="old-price">₹999</span>
-</div>
-
-<p>Compact wireless earbuds.</p>
-
-<button class="add-btn"
-onclick="addToCart('Wireless Earbuds',699)">
-Add to Cart
-</button>
-
-</div>
-</div>
-
-
-<div class="product">
-
-<div class="product-img">
-🍴
-</div>
-
-<div class="product-info">
-
-<h3>Kitchen Gadget Set</h3>
-
-<div class="price">
-₹399
-<span class="old-price">₹599</span>
-</div>
-
-<p>Useful kitchen accessories.</p>
-
-<button class="add-btn"
-onclick="addToCart('Kitchen Gadget Set',399)">
-Add to Cart
-</button>
-
-</div>
-</div>
-
-
-<div class="product">
-
-<div class="product-img">
-💡
-</div>
-
-<div class="product-info">
-
-<h3>Mini LED Light</h3>
-
-<div class="price">
-₹249
-<span class="old-price">₹399</span>
-</div>
-
-<p>Portable LED light for everyday use.</p>
-
-<button class="add-btn"
-onclick="addToCart('Mini LED Light',249)">
-Add to Cart
-</button>
-
-</div>
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- WHY US -->
-
-<section class="section">
-
-<h2>Why Shop With Us?</h2>
-
-<div class="features">
-
-<div class="feature">
-<div class="feature-icon">🚚</div>
-<h3>Fast Delivery</h3>
-<p>Delivery available across India.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🔒</div>
-<h3>Secure Shopping</h3>
-<p>Simple and secure ordering.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">💰</div>
-<h3>Best Prices</h3>
-<p>Affordable products and offers.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📞</div>
-<h3>WhatsApp Support</h3>
-<p>Contact us directly for help.</p>
-</div>
-
-</div>
+<div class="products" id="productList"></div>
 
 </section>
 
 
 <!-- PAYMENT -->
 
-<section class="section" id="payment">
+<section class="section">
 
-<div class="payment-box">
+<h2>💳 UPI Payment</h2>
 
-<h2>💳 Pay With UPI</h2>
+<div style="
+background:white;
+padding:25px;
+max-width:550px;
+margin:auto;
+text-align:center;
+border-radius:15px;
+box-shadow:0 4px 15px #0001;
+">
 
-<p>
-Pay securely using any UPI app.
+<p>Pay using any supported UPI app.</p>
+
+<p style="
+margin:15px 0;
+padding:12px;
+background:#f1f5f9;
+border-radius:8px;
+font-weight:bold;
+word-break:break-all;
+">
+bahadursingh63036-1@oksbi
 </p>
-
-<div class="upi-id">
-UPI ID: bahadursingh63036-1@oksbi
-</div>
 
 <a
-class="upi-btn"
+class="btn"
 href="upi://pay?pa=bahadursingh63036-1@oksbi&pn=ShopNexa&cu=INR">
-📲 Pay Now with UPI
+📲 Pay Now
 </a>
-
-<p class="payment-note">
-If the Pay Now button does not work, open your UPI app
-and enter the UPI ID shown above.
-</p>
 
 </div>
 
@@ -637,27 +514,28 @@ and enter the UPI ID shown above.
 
 <footer id="contact">
 
-<div class="footer-grid">
+<div class="footerGrid">
 
 <div>
 <h3>ShopNexa</h3>
-<p>
-Your destination for smart and useful products.
-</p>
-</div>
-
-<div>
-<h3>Quick Links</h3>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#categories">Categories</a>
-<a href="#payment">Payment</a>
+<p>Smart products at great prices.</p>
 </div>
 
 <div>
 <h3>Contact</h3>
-<p>📱 WhatsApp: 9041205060</p>
-<p>💳 UPI: bahadursingh63036-1@oksbi</p>
+<p>WhatsApp: 9041205060</p>
+<p>UPI: bahadursingh63036-1@oksbi</p>
+</div>
+
+<div>
+<h3>Admin</h3>
+
+<button
+class="adminBtn"
+onclick="openLogin()">
+🔐 Admin Login
+</button>
+
 </div>
 
 </div>
@@ -683,68 +561,838 @@ target="_blank">
 
 <!-- CART -->
 
-<div class="cart-box" id="cartBox">
+<div class="cartPanel" id="cartPanel">
 
-<span class="close-cart" onclick="closeCart()">✕</span>
+<span class="close" onclick="closeCart()">✕</span>
 
 <h2>🛒 Your Cart</h2>
 
-<div id="cartItems">
-<p>Your cart is empty.</p>
-</div>
+<br>
+
+<div id="cartItems"></div>
 
 <h3 id="cartTotal">
 Total: ₹0
 </h3>
 
-<button class="checkout"
+<button
+class="checkoutBtn"
 onclick="checkoutWhatsApp()">
 📱 Order on WhatsApp
 </button>
 
-<button class="pay-cart"
-onclick="payCart()">
-💳 Pay Cart Total with UPI
+</div>
+
+
+<!-- LOGIN MODAL -->
+
+<div class="modal" id="loginModal">
+
+<div class="loginBox">
+
+<h2>🔐 Admin Login</h2>
+
+<br>
+
+<label>Username</label>
+
+<input
+class="input"
+id="username"
+placeholder="Enter username">
+
+<label>Password</label>
+
+<input
+class="input"
+id="password"
+type="password"
+placeholder="Enter password">
+
+<button
+class="adminBtn"
+onclick="login()">
+Login
 </button>
+
+<button
+class="adminBtn red"
+onclick="closeLogin()">
+Cancel
+</button>
+
+<p
+id="loginError"
+style="color:red;margin-top:12px;">
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div class="modal" id="adminModal">
+
+<div class="adminBox">
+
+<div class="adminTop">
+
+<h2>⚙️ ShopNexa Admin Panel</h2>
+
+<button
+class="adminBtn red"
+onclick="logout()">
+Logout
+</button>
+
+</div>
+
+
+<h3 id="formTitle">
+➕ Add Product
+</h3>
+
+<br>
+
+<label>Product Name</label>
+
+<input
+class="input"
+id="productName"
+placeholder="Example: Wireless Earbuds">
+
+
+<label>Category</label>
+
+<select
+class="input"
+id="productCategory">
+
+<option>Mobile Accessories</option>
+<option>Kitchen Products</option>
+<option>Electronic Gadgets</option>
+<option>Useful Products</option>
+
+</select>
+
+
+<label>Selling Price (₹)</label>
+
+<input
+class="input"
+id="productPrice"
+type="number"
+placeholder="699">
+
+
+<label>Old Price (₹)</label>
+
+<input
+class="input"
+id="productOldPrice"
+type="number"
+placeholder="999">
+
+
+<label>Stock</label>
+
+<input
+class="input"
+id="productStock"
+type="number"
+placeholder="10">
+
+
+<label>Description</label>
+
+<textarea
+class="input"
+id="productDescription"
+rows="4"
+placeholder="Product description"></textarea>
+
+
+<label>Product Image</label>
+
+<input
+class="input"
+id="productImage"
+type="file"
+accept="image/*"
+onchange="previewImage(event)">
+
+<img
+id="imagePreview"
+style="
+display:none;
+width:130px;
+height:130px;
+object-fit:cover;
+border-radius:10px;
+margin-bottom:15px;
+">
+
+
+<br>
+
+<button
+class="adminBtn green"
+onclick="saveProduct()">
+💾 Save Product
+</button>
+
+<button
+class="adminBtn"
+onclick="clearForm()">
+Clear
+</button>
+
+<br><br>
+
+<hr>
+
+<br>
+
+<h3>📦 Manage Products</h3>
+
+<div
+class="adminProducts"
+id="adminProductList">
+</div>
+
+</div>
 
 </div>
 
 
 <script>
 
-let cart = [];
+/* =========================
+   ADMIN LOGIN
+========================= */
 
+const ADMIN_USERNAME = "admin";
+const ADMIN_PASSWORD = "password";
 
-// ADD TO CART
+function openLogin(){
 
-function addToCart(name,price){
+document
+.getElementById("loginModal")
+.classList.add("show");
 
-cart.push({
-name:name,
-price:price
-});
+}
 
-updateCart();
+function closeLogin(){
 
-alert(name + " added to cart!");
+document
+.getElementById("loginModal")
+.classList.remove("show");
+
+}
+
+function login(){
+
+let username =
+document.getElementById("username").value;
+
+let password =
+document.getElementById("password").value;
+
+if(
+username === ADMIN_USERNAME &&
+password === ADMIN_PASSWORD
+){
+
+closeLogin();
+
+document
+.getElementById("adminModal")
+.classList.add("show");
+
+document.getElementById("loginError").innerText="";
+
+loadAdminProducts();
+
+}else{
+
+document.getElementById("loginError").innerText =
+"❌ Wrong username or password";
+
+}
+
+}
+
+function logout(){
+
+document
+.getElementById("adminModal")
+.classList.remove("show");
 
 }
 
 
-// UPDATE CART
+/* =========================
+   PRODUCTS
+========================= */
+
+let products =
+JSON.parse(localStorage.getItem("shopnexa_products")) || [];
+
+
+/* DEFAULT PRODUCTS */
+
+if(products.length === 0){
+
+products = [
+
+{
+id:Date.now()+1,
+name:"Fast Charging Cable",
+category:"Mobile Accessories",
+price:299,
+oldPrice:499,
+stock:10,
+description:"Fast and reliable charging cable.",
+image:"https://via.placeholder.com/500x400?text=Charging+Cable"
+},
+
+{
+id:Date.now()+2,
+name:"Wireless Earbuds",
+category:"Electronic Gadgets",
+price:699,
+oldPrice:999,
+stock:8,
+description:"Compact wireless earbuds.",
+image:"https://via.placeholder.com/500x400?text=Wireless+Earbuds"
+},
+
+{
+id:Date.now()+3,
+name:"Kitchen Gadget Set",
+category:"Kitchen Products",
+price:399,
+oldPrice:599,
+stock:15,
+description:"Useful kitchen accessories.",
+image:"https://via.placeholder.com/500x400?text=Kitchen+Set"
+},
+
+{
+id:Date.now()+4,
+name:"Mini LED Light",
+category:"Useful Products",
+price:249,
+oldPrice:399,
+stock:20,
+description:"Portable LED light.",
+image:"https://via.placeholder.com/500x400?text=Mini+LED"
+}
+
+];
+
+saveProducts();
+
+}
+
+
+function saveProducts(){
+
+localStorage.setItem(
+"shopnexa_products",
+JSON.stringify(products)
+);
+
+}
+
+
+/* =========================
+   SHOW PRODUCTS
+========================= */
+
+function displayProducts(){
+
+let list =
+document.getElementById("productList");
+
+if(products.length === 0){
+
+list.innerHTML =
+'<div class="empty">No products available.</div>';
+
+return;
+
+}
+
+let html = "";
+
+products.forEach(product => {
+
+let soldOut =
+Number(product.stock) <= 0;
+
+html += `
+
+<div class="product">
+
+<img
+src="${product.image}"
+alt="${product.name}">
+
+<div class="product-info">
+
+<h3>${product.name}</h3>
+
+<p style="font-size:13px;color:#777;">
+${product.category}
+</p>
+
+<div class="price">
+
+₹${product.price}
+
+<span class="old">
+₹${product.oldPrice}
+</span>
+
+</div>
+
+<p class="stock">
+
+${
+soldOut
+? "❌ Out of Stock"
+: "📦 Stock: " + product.stock
+}
+
+</p>
+
+<p style="margin-bottom:12px;">
+${product.description}
+</p>
+
+<button
+class="addBtn"
+${soldOut ? "disabled" : ""}
+onclick="addToCart(${product.id})">
+
+${soldOut ? "Out of Stock" : "🛒 Add to Cart"}
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+list.innerHTML = html;
+
+}
+
+
+/* =========================
+   ADMIN PRODUCT LIST
+========================= */
+
+function loadAdminProducts(){
+
+let list =
+document.getElementById("adminProductList");
+
+if(products.length === 0){
+
+list.innerHTML =
+'<p class="empty">No products.</p>';
+
+return;
+
+}
+
+let html = "";
+
+products.forEach(product => {
+
+html += `
+
+<div class="adminProduct">
+
+<img src="${product.image}">
+
+<div>
+
+<strong>${product.name}</strong>
+
+<p>₹${product.price}</p>
+
+<p>Stock: ${product.stock}</p>
+
+</div>
+
+<div class="adminActions">
+
+<button
+class="adminBtn"
+onclick="editProduct(${product.id})">
+✏️ Edit
+</button>
+
+<button
+class="adminBtn red"
+onclick="deleteProduct(${product.id})">
+🗑️ Delete
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+list.innerHTML = html;
+
+}
+
+
+/* =========================
+   IMAGE UPLOAD
+========================= */
+
+let selectedImage = "";
+
+function previewImage(event){
+
+let file =
+event.target.files[0];
+
+if(!file) return;
+
+let reader =
+new FileReader();
+
+reader.onload = function(e){
+
+selectedImage = e.target.result;
+
+let preview =
+document.getElementById("imagePreview");
+
+preview.src =
+selectedImage;
+
+preview.style.display =
+"block";
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* =========================
+   ADD / EDIT PRODUCT
+========================= */
+
+let editingId = null;
+
+function saveProduct(){
+
+let name =
+document.getElementById("productName").value.trim();
+
+let category =
+document.getElementById("productCategory").value;
+
+let price =
+document.getElementById("productPrice").value;
+
+let oldPrice =
+document.getElementById("productOldPrice").value;
+
+let stock =
+document.getElementById("productStock").value;
+
+let description =
+document.getElementById("productDescription").value.trim();
+
+
+if(!name || !price || !stock){
+
+alert("Please enter Product Name, Price and Stock.");
+
+return;
+
+}
+
+
+/* ADD */
+
+if(editingId === null){
+
+if(!selectedImage){
+
+selectedImage =
+"https://via.placeholder.com/500x400?text=ShopNexa+Product";
+
+}
+
+products.push({
+
+id:Date.now(),
+
+name:name,
+
+category:category,
+
+price:Number(price),
+
+oldPrice:Number(oldPrice || price),
+
+stock:Number(stock),
+
+description:description,
+
+image:selectedImage
+
+});
+
+alert("✅ Product added successfully!");
+
+}
+
+
+/* EDIT */
+
+else{
+
+let product =
+products.find(p => p.id === editingId);
+
+product.name = name;
+
+product.category = category;
+
+product.price = Number(price);
+
+product.oldPrice = Number(oldPrice || price);
+
+product.stock = Number(stock);
+
+product.description = description;
+
+if(selectedImage){
+
+product.image =
+selectedImage;
+
+}
+
+alert("✅ Product updated successfully!");
+
+}
+
+
+saveProducts();
+
+displayProducts();
+
+loadAdminProducts();
+
+clearForm();
+
+}
+
+
+/* =========================
+   EDIT PRODUCT
+========================= */
+
+function editProduct(id){
+
+let product =
+products.find(p => p.id === id);
+
+if(!product) return;
+
+editingId = id;
+
+document.getElementById("formTitle").innerText =
+"✏️ Edit Product";
+
+document.getElementById("productName").value =
+product.name;
+
+document.getElementById("productCategory").value =
+product.category;
+
+document.getElementById("productPrice").value =
+product.price;
+
+document.getElementById("productOldPrice").value =
+product.oldPrice;
+
+document.getElementById("productStock").value =
+product.stock;
+
+document.getElementById("productDescription").value =
+product.description;
+
+selectedImage = "";
+
+let preview =
+document.getElementById("imagePreview");
+
+preview.src =
+product.image;
+
+preview.style.display =
+"block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
+   DELETE PRODUCT
+========================= */
+
+function deleteProduct(id){
+
+let product =
+products.find(p => p.id === id);
+
+if(!product) return;
+
+let confirmDelete =
+confirm(
+"Delete " +
+product.name +
+"?");
+
+if(!confirmDelete) return;
+
+products =
+products.filter(p => p.id !== id);
+
+saveProducts();
+
+displayProducts();
+
+loadAdminProducts();
+
+alert("🗑️ Product deleted.");
+
+}
+
+
+/* =========================
+   CLEAR FORM
+========================= */
+
+function clearForm(){
+
+editingId = null;
+
+selectedImage = "";
+
+document.getElementById("formTitle").innerText =
+"➕ Add Product";
+
+document.getElementById("productName").value = "";
+
+document.getElementById("productPrice").value = "";
+
+document.getElementById("productOldPrice").value = "";
+
+document.getElementById("productStock").value = "";
+
+document.getElementById("productDescription").value = "";
+
+document.getElementById("productImage").value = "";
+
+document.getElementById("imagePreview").style.display =
+"none";
+
+}
+
+
+/* =========================
+   CART
+========================= */
+
+let cart = [];
+
+
+function addToCart(id){
+
+let product =
+products.find(p => p.id === id);
+
+if(!product || product.stock <= 0){
+
+alert("Product is out of stock.");
+
+return;
+
+}
+
+let existing =
+cart.find(item => item.id === id);
+
+if(existing){
+
+if(existing.quantity < product.stock){
+
+existing.quantity++;
+
+}else{
+
+alert("Maximum available stock reached.");
+
+return;
+
+}
+
+}else{
+
+cart.push({
+id:id,
+quantity:1
+});
+
+}
+
+updateCart();
+
+alert(product.name + " added to cart!");
+
+}
+
 
 function updateCart(){
 
 document.getElementById("cartCount").innerText =
-cart.length;
+cart.reduce((sum,item) =>
+sum + item.quantity,0);
 
-let items =
+let box =
 document.getElementById("cartItems");
 
 if(cart.length === 0){
 
-items.innerHTML =
-"<p>Your cart is empty.</p>";
+box.innerHTML =
+'<p class="empty">Your cart is empty.</p>';
 
 document.getElementById("cartTotal").innerText =
 "Total: ₹0";
@@ -756,20 +1404,45 @@ return;
 let html = "";
 let total = 0;
 
-cart.forEach((item,index)=>{
+cart.forEach(item => {
 
-total += item.price;
+let product =
+products.find(p => p.id === item.id);
+
+if(!product) return;
+
+let itemTotal =
+product.price * item.quantity;
+
+total += itemTotal;
 
 html += `
 
-<div class="cart-item">
+<div class="cartItem">
 
-<strong>${item.name}</strong>
+<strong>${product.name}</strong>
 
-<p>₹${item.price}</p>
+<p>
+₹${product.price} × ${item.quantity}
+=
+₹${itemTotal}
+</p>
 
-<button class="remove-btn"
-onclick="removeItem(${index})">
+<button
+class="qtyBtn"
+onclick="changeQuantity(${product.id},-1)">
+−
+</button>
+
+<button
+class="qtyBtn"
+onclick="changeQuantity(${product.id},1)">
++
+</button>
+
+<button
+class="removeBtn"
+onclick="removeFromCart(${product.id})">
 Remove
 </button>
 
@@ -779,7 +1452,7 @@ Remove
 
 });
 
-items.innerHTML = html;
+box.innerHTML = html;
 
 document.getElementById("cartTotal").innerText =
 "Total: ₹" + total;
@@ -787,46 +1460,79 @@ document.getElementById("cartTotal").innerText =
 }
 
 
-// REMOVE ITEM
+function changeQuantity(id,change){
 
-function removeItem(index){
+let item =
+cart.find(i => i.id === id);
 
-cart.splice(index,1);
+let product =
+products.find(p => p.id === id);
+
+if(!item || !product) return;
+
+let newQuantity =
+item.quantity + change;
+
+if(newQuantity <= 0){
+
+removeFromCart(id);
+
+return;
+
+}
+
+if(newQuantity > product.stock){
+
+alert("Only " + product.stock + " items available.");
+
+return;
+
+}
+
+item.quantity =
+newQuantity;
 
 updateCart();
 
 }
 
 
-// OPEN CART
+function removeFromCart(id){
 
-function openCart(){
+cart =
+cart.filter(item => item.id !== id);
 
-document
-.getElementById("cartBox")
-.classList.add("open");
+updateCart();
 
 }
 
 
-// CLOSE CART
+function openCart(){
+
+document
+.getElementById("cartPanel")
+.classList.add("open");
+
+}
 
 function closeCart(){
 
 document
-.getElementById("cartBox")
+.getElementById("cartPanel")
 .classList.remove("open");
 
 }
 
 
-// WHATSAPP CHECKOUT
+/* =========================
+   WHATSAPP ORDER
+========================= */
 
 function checkoutWhatsApp(){
 
 if(cart.length === 0){
 
-alert("Please add a product first.");
+alert("Your cart is empty.");
 
 return;
 
@@ -838,17 +1544,27 @@ let message =
 
 let total = 0;
 
-cart.forEach((item,index)=>{
+cart.forEach((item,index) => {
+
+let product =
+products.find(p => p.id === item.id);
+
+if(!product) return;
+
+let itemTotal =
+product.price * item.quantity;
+
+total += itemTotal;
 
 message +=
-(index + 1) +
+(index+1) +
 ". " +
-item.name +
-" - ₹" +
-item.price +
+product.name +
+" × " +
+item.quantity +
+" = ₹" +
+itemTotal +
 "\n";
-
-total += item.price;
 
 });
 
@@ -866,37 +1582,13 @@ encodeURIComponent(message),
 }
 
 
-// PAY CART TOTAL
+/* =========================
+   START WEBSITE
+========================= */
 
-function payCart(){
+displayProducts();
 
-if(cart.length === 0){
-
-alert("Please add a product first.");
-
-return;
-
-}
-
-let total = 0;
-
-cart.forEach(item => {
-
-total += item.price;
-
-});
-
-let upiURL =
-"upi://pay" +
-"?pa=bahadursingh63036-1@oksbi" +
-"&pn=ShopNexa" +
-"&am=" +
-total +
-"&cu=INR";
-
-window.location.href = upiURL;
-
-}
+updateCart();
 
 </script>
 
