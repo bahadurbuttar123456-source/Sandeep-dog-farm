@@ -4,510 +4,901 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sandeep Dog Farm | All Dog Breeds</title>
+<title>ShopNexa | Smart Shopping Store</title>
+
+<meta name="description"
+content="ShopNexa - Mobile Accessories, Kitchen Products, Electronic Gadgets and Useful Products.">
 
 <style>
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
 }
 
 body{
-  font-family:Arial,sans-serif;
-  background:#f4f4f4;
-  color:#222;
+    background:#f5f7fb;
+    color:#222;
 }
 
 header{
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:25px 15px;
+    background:#111827;
+    color:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-header h1{
-  font-size:32px;
-  margin-bottom:8px;
+.logo{
+    font-size:27px;
+    font-weight:bold;
 }
 
-header p{
-  color:#ddd;
-}
-
-nav{
-  background:#222;
-  padding:13px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:100;
+.logo span{
+    color:#00e5ff;
 }
 
 nav a{
-  color:#fff;
-  text-decoration:none;
-  margin:0 7px;
-  font-weight:bold;
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+}
+
+.cart{
+    background:#00e5ff;
+    color:#111827;
+    padding:9px 15px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .hero{
-  background:linear-gradient(135deg,#111,#444);
-  color:#fff;
-  text-align:center;
-  padding:55px 20px;
+    background:linear-gradient(135deg,#111827,#164e63);
+    color:white;
+    padding:75px 7%;
+    text-align:center;
 }
 
-.hero h2{
-  font-size:32px;
-  margin-bottom:12px;
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
 }
 
 .hero p{
-  margin-bottom:20px;
+    font-size:19px;
+    margin-bottom:25px;
 }
 
 .btn{
-  display:inline-block;
-  padding:12px 20px;
-  border:none;
-  border-radius:8px;
-  background:#25D366;
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  cursor:pointer;
-  margin:5px;
+    display:inline-block;
+    background:#00e5ff;
+    color:#111827;
+    padding:13px 27px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    border:none;
+    cursor:pointer;
 }
 
-.btn-dark{
-  background:#111;
+.section{
+    padding:50px 6%;
 }
 
-.btn-gold{
-  background:#d89b00;
+.section h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:30px;
 }
 
-.container{
-  width:92%;
-  max-width:1200px;
-  margin:30px auto;
+.categories,
+.products,
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
 }
 
-.section-title{
-  text-align:center;
-  margin-bottom:20px;
-  font-size:28px;
+.category,
+.product,
+.feature{
+    background:white;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
 
-.search-box{
-  width:100%;
-  padding:15px;
-  border:1px solid #ccc;
-  border-radius:8px;
-  font-size:16px;
-  margin-bottom:20px;
+.category{
+    padding:30px 15px;
+    text-align:center;
+    cursor:pointer;
 }
 
-.filter-buttons{
-  text-align:center;
-  margin-bottom:25px;
+.category:hover,
+.product:hover{
+    transform:translateY(-5px);
 }
 
-.filter-buttons button{
-  padding:10px 15px;
-  margin:5px;
-  border:none;
-  border-radius:7px;
-  cursor:pointer;
-  background:#111;
-  color:#fff;
+.icon{
+    font-size:45px;
+    margin-bottom:12px;
 }
 
-.breed-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
+.product{
+    overflow:hidden;
+    transition:.3s;
 }
 
-.card{
-  background:#fff;
-  border-radius:12px;
-  overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.15);
-  cursor:pointer;
-  transition:.2s;
+.product-img{
+    height:190px;
+    background:#e5e7eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:65px;
 }
 
-.card:hover{
-  transform:translateY(-5px);
+.product-info{
+    padding:18px;
 }
 
-.card img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  display:block;
+.product-info h3{
+    margin-bottom:8px;
 }
 
-.card-content{
-  padding:15px;
+.price{
+    font-size:21px;
+    font-weight:bold;
+    color:#0f766e;
+    margin:10px 0;
 }
 
-.card h3{
-  margin-bottom:8px;
+.old-price{
+    color:#999;
+    text-decoration:line-through;
+    font-size:14px;
+    margin-left:5px;
 }
 
-.card p{
-  color:#666;
-  line-height:1.5;
+.add-btn{
+    width:100%;
+    padding:11px;
+    background:#111827;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:12px;
 }
 
-.details{
-  display:none;
-  background:#fff;
-  padding:25px;
-  border-radius:12px;
-  margin-top:30px;
-  box-shadow:0 3px 12px rgba(0,0,0,.15);
+.add-btn:hover{
+    background:#00a9c0;
 }
 
-.details img{
-  width:100%;
-  max-width:500px;
-  height:350px;
-  object-fit:cover;
-  border-radius:10px;
-  display:block;
-  margin:0 auto 20px;
+.feature{
+    padding:25px;
+    text-align:center;
 }
 
-.payment,
-.form-box,
-.admin{
-  background:#fff;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 3px 12px rgba(0,0,0,.12);
+.feature-icon{
+    font-size:38px;
 }
 
-.payment{
-  text-align:center;
+.feature h3{
+    margin:10px 0;
 }
 
-.qr{
-  width:250px;
-  max-width:80%;
-  margin:20px auto;
-  display:block;
-  border-radius:10px;
+.payment-box{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 4px 20px rgba(0,0,0,.1);
 }
 
-.form-box input,
-.form-box textarea,
-.form-box select,
-.admin input,
-.admin textarea{
-  width:100%;
-  padding:13px;
-  margin:8px 0 15px;
-  border:1px solid #ccc;
-  border-radius:7px;
-  font-size:16px;
+.payment-box h2{
+    margin-bottom:15px;
 }
 
-.small{
-  color:#777;
-  font-size:14px;
-  margin-top:8px;
+.upi-id{
+    background:#f1f5f9;
+    padding:13px;
+    border-radius:8px;
+    margin:15px 0;
+    font-weight:bold;
+    word-break:break-all;
+}
+
+.upi-btn{
+    display:inline-block;
+    background:#111827;
+    color:white;
+    padding:13px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.payment-note{
+    margin-top:15px;
+    color:#666;
+    font-size:14px;
 }
 
 footer{
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:25px;
-  margin-top:40px;
+    background:#111827;
+    color:white;
+    padding:40px 6%;
 }
 
-@media(max-width:600px){
-  header h1{
-    font-size:25px;
-  }
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
 
-  .hero h2{
-    font-size:25px;
-  }
+footer a{
+    color:#ddd;
+    text-decoration:none;
+    display:block;
+    margin:8px 0;
+}
 
-  .card img{
-    height:200px;
-  }
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#25D366;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    text-decoration:none;
+    z-index:2000;
+    box-shadow:0 4px 15px rgba(0,0,0,.25);
+}
+
+.cart-box{
+    position:fixed;
+    right:-420px;
+    top:0;
+    width:380px;
+    max-width:92%;
+    height:100%;
+    background:white;
+    z-index:3000;
+    box-shadow:-5px 0 20px rgba(0,0,0,.2);
+    padding:25px;
+    transition:.3s;
+    overflow-y:auto;
+}
+
+.cart-box.open{
+    right:0;
+}
+
+.close-cart{
+    float:right;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.cart-box h2{
+    margin-bottom:20px;
+}
+
+.cart-item{
+    padding:13px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.remove-btn{
+    margin-top:7px;
+    border:none;
+    background:#ef4444;
+    color:white;
+    padding:6px 10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.checkout{
+    margin-top:15px;
+    width:100%;
+    background:#25D366;
+    color:white;
+    border:none;
+    padding:13px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.pay-cart{
+    margin-top:10px;
+    width:100%;
+    background:#111827;
+    color:white;
+    border:none;
+    padding:13px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+@media(max-width:900px){
+
+    .categories,
+    .products,
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    nav{
+        display:none;
+    }
+}
+
+@media(max-width:550px){
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .categories,
+    .products,
+    .features,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <h1>🐕 SANDEEP DOG FARM</h1>
-  <p>Quality Puppies • Trusted Service • All India Delivery</p>
-</header>
+
+<div class="logo">
+Shop<span>Nexa</span>
+</div>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#breeds">Breeds</a>
-  <a href="#booking">Booking</a>
-  <a href="#payment">Payment</a>
-  <a href="#contact">Contact</a>
+<a href="#home">Home</a>
+<a href="#categories">Categories</a>
+<a href="#products">Products</a>
+<a href="#payment">Payment</a>
+<a href="#contact">Contact</a>
 </nav>
 
+<div class="cart" onclick="openCart()">
+🛒 Cart (<span id="cartCount">0</span>)
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
 <section class="hero" id="home">
-  <h2>Welcome to Sandeep Dog Farm</h2>
-  <p>Explore our available dog breeds and contact us for booking.</p>
 
-  <a class="btn" href="#breeds">🐕 View All Breeds</a>
+<h1>Welcome to ShopNexa</h1>
 
-  <a class="btn"
-     href="https://wa.me/919041205060?text=Hello%20Sandeep%20Dog%20Farm">
-     📱 WhatsApp
-  </a>
-</section>
+<p>
+Smart Products • Great Prices • Easy Shopping
+</p>
 
-
-<section class="container" id="breeds">
-
-  <h2 class="section-title">🐶 All Dog Breeds</h2>
-
-  <input
-    type="text"
-    id="search"
-    class="search-box"
-    placeholder="Search any breed..."
-    onkeyup="searchBreed()"
-  >
-
-  <div class="filter-buttons">
-    <button onclick="showAll()">All Breeds</button>
-    <button onclick="filterBreed('German Shepherd')">German Shepherd</button>
-    <button onclick="filterBreed('Labrador')">Labrador</button>
-    <button onclick="filterBreed('Husky')">Husky</button>
-    <button onclick="filterBreed('Pomeranian')">Pomeranian</button>
-    <button onclick="filterBreed('French Bulldog')">French Bulldog</button>
-    <button onclick="filterBreed('Golden Retriever')">Golden Retriever</button>
-    <button onclick="filterBreed('Doberman')">Doberman</button>
-    <button onclick="filterBreed('Beagle')">Beagle</button>
-  </div>
-
-  <div id="breedGrid" class="breed-grid"></div>
-
-  <div id="details" class="details"></div>
+<a href="#products" class="btn">
+Shop Now
+</a>
 
 </section>
 
 
-<section class="container" id="booking">
+<!-- CATEGORIES -->
 
-  <h2 class="section-title">📋 Puppy Booking</h2>
+<section class="section" id="categories">
 
-  <div class="form-box">
+<h2>Shop By Category</h2>
 
-    <input
-      id="customerName"
-      type="text"
-      placeholder="Your Name"
-    >
+<div class="categories">
 
-    <input
-      id="customerPhone"
-      type="tel"
-      placeholder="Mobile Number"
-    >
+<div class="category">
+<div class="icon">📱</div>
+<h3>Mobile Accessories</h3>
+<p>Smart accessories for your phone</p>
+</div>
 
-    <select id="selectedBreed">
-      <option value="">Select Breed</option>
-    </select>
+<div class="category">
+<div class="icon">🍳</div>
+<h3>Kitchen Products</h3>
+<p>Useful products for your kitchen</p>
+</div>
 
-    <textarea
-      id="customerMessage"
-      rows="5"
-      placeholder="Write your message"
-    ></textarea>
+<div class="category">
+<div class="icon">⚡</div>
+<h3>Electronic Gadgets</h3>
+<p>Trending gadgets & electronics</p>
+</div>
 
-    <button class="btn" onclick="sendBooking()">
-      📱 Send Booking on WhatsApp
-    </button>
+<div class="category">
+<div class="icon">🛍️</div>
+<h3>Useful Products</h3>
+<p>Small things for everyday life</p>
+</div>
 
-  </div>
-
-</section>
-
-
-<section class="container" id="payment">
-
-  <h2 class="section-title">💳 Online Payment</h2>
-
-  <div class="payment">
-
-    <h3>Pay using UPI</h3>
-
-    <p style="margin-top:10px;">
-      Scan the QR Code below to make payment.
-    </p>
-
-    <!--
-    अपना QR Code इसी नाम से upload करें:
-    qr-code.png
-
-    QR Code और index.html को एक ही folder में रखें.
-    -->
-
-    <img
-      class="qr"
-      src="qr-code.png"
-      alt="Sandeep Dog Farm UPI QR Code"
-      onerror="this.style.display='none'"
-    >
-
-    <h3>UPI ID</h3>
-
-    <p id="upiText" style="font-size:18px;margin:12px 0;">
-      bahadursingh63036-1@oksbi
-    </p>
-
-    <button class="btn btn-gold" onclick="copyUPI()">
-      📋 Copy UPI ID
-    </button>
-
-    <br>
-
-    <a
-      class="btn"
-      href="upi://pay?pa=bahadursingh63036-1@oksbi&pn=Sandeep%20Dog%20Farm&cu=INR">
-      💰 Pay Now
-    </a>
-
-    <p class="small">
-      UPI ID: bahadursingh63036-1@oksbi
-    </p>
-
-  </div>
+</div>
 
 </section>
 
 
-<section class="container">
+<!-- PRODUCTS -->
 
-  <h2 class="section-title">➕ Add New Breed</h2>
+<section class="section" id="products">
 
-  <div class="admin">
+<h2>🔥 Trending Products</h2>
 
-    <input
-      id="newBreedName"
-      type="text"
-      placeholder="Breed Name"
-    >
+<div class="products">
 
-    <input
-      id="newBreedImage"
-      type="url"
-      placeholder="Breed Photo URL"
-    >
 
-    <textarea
-      id="newBreedDescription"
-      rows="4"
-      placeholder="Breed Description"
-    ></textarea>
+<div class="product">
 
-    <button class="btn btn-dark" onclick="addBreed()">
-      ➕ Add Breed
-    </button>
+<div class="product-img">
+🔌
+</div>
 
-    <p class="small">
-      Example: Rottweiler, Shih Tzu, Chow Chow, Boxer etc.
-    </p>
+<div class="product-info">
 
-  </div>
+<h3>Fast Charging Cable</h3>
+
+<div class="price">
+₹299
+<span class="old-price">₹499</span>
+</div>
+
+<p>Fast & reliable charging cable.</p>
+
+<button class="add-btn"
+onclick="addToCart('Fast Charging Cable',299)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<div class="product">
+
+<div class="product-img">
+🎧
+</div>
+
+<div class="product-info">
+
+<h3>Wireless Earbuds</h3>
+
+<div class="price">
+₹699
+<span class="old-price">₹999</span>
+</div>
+
+<p>Compact wireless earbuds.</p>
+
+<button class="add-btn"
+onclick="addToCart('Wireless Earbuds',699)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<div class="product">
+
+<div class="product-img">
+🍴
+</div>
+
+<div class="product-info">
+
+<h3>Kitchen Gadget Set</h3>
+
+<div class="price">
+₹399
+<span class="old-price">₹599</span>
+</div>
+
+<p>Useful kitchen accessories.</p>
+
+<button class="add-btn"
+onclick="addToCart('Kitchen Gadget Set',399)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+<div class="product">
+
+<div class="product-img">
+💡
+</div>
+
+<div class="product-info">
+
+<h3>Mini LED Light</h3>
+
+<div class="price">
+₹249
+<span class="old-price">₹399</span>
+</div>
+
+<p>Portable LED light for everyday use.</p>
+
+<button class="add-btn"
+onclick="addToCart('Mini LED Light',249)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
+
+</div>
 
 </section>
 
 
-<section class="container" id="contact">
+<!-- WHY US -->
 
-  <h2 class="section-title">📞 Contact Us</h2>
+<section class="section">
 
-  <div class="payment">
+<h2>Why Shop With Us?</h2>
 
-    <h3>Sandeep Dog Farm</h3>
+<div class="features">
 
-    <p style="margin:12px 0;">
-      📱 Phone / WhatsApp: 9041205060
-    </p>
+<div class="feature">
+<div class="feature-icon">🚚</div>
+<h3>Fast Delivery</h3>
+<p>Delivery available across India.</p>
+</div>
 
-    <a class="btn" href="tel:9041205060">
-      📞 Call Now
-    </a>
+<div class="feature">
+<div class="feature-icon">🔒</div>
+<h3>Secure Shopping</h3>
+<p>Simple and secure ordering.</p>
+</div>
 
-    <a
-      class="btn"
-      href="https://wa.me/919041205060?text=Hello%20Sandeep%20Dog%20Farm">
-      💬 WhatsApp
-    </a>
+<div class="feature">
+<div class="feature-icon">💰</div>
+<h3>Best Prices</h3>
+<p>Affordable products and offers.</p>
+</div>
 
-  </div>
+<div class="feature">
+<div class="feature-icon">📞</div>
+<h3>WhatsApp Support</h3>
+<p>Contact us directly for help.</p>
+</div>
+
+</div>
 
 </section>
 
 
-<footer>
+<!-- PAYMENT -->
 
-  <p>© 2026 Sandeep Dog Farm</p>
-  <p>All Rights Reserved.</p>
+<section class="section" id="payment">
+
+<div class="payment-box">
+
+<h2>💳 Pay With UPI</h2>
+
+<p>
+Pay securely using any UPI app.
+</p>
+
+<div class="upi-id">
+UPI ID: bahadursingh63036-1@oksbi
+</div>
+
+<a
+class="upi-btn"
+href="upi://pay?pa=bahadursingh63036-1@oksbi&pn=ShopNexa&cu=INR">
+📲 Pay Now with UPI
+</a>
+
+<p class="payment-note">
+If the Pay Now button does not work, open your UPI app
+and enter the UPI ID shown above.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+<div class="footer-grid">
+
+<div>
+<h3>ShopNexa</h3>
+<p>
+Your destination for smart and useful products.
+</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#categories">Categories</a>
+<a href="#payment">Payment</a>
+</div>
+
+<div>
+<h3>Contact</h3>
+<p>📱 WhatsApp: 9041205060</p>
+<p>💳 UPI: bahadursingh63036-1@oksbi</p>
+</div>
+
+</div>
+
+<br>
+
+<center>
+© 2026 ShopNexa. All Rights Reserved.
+</center>
 
 </footer>
 
 
+<!-- WHATSAPP -->
+
+<a
+class="whatsapp"
+href="https://wa.me/919041205060"
+target="_blank">
+💬
+</a>
+
+
+<!-- CART -->
+
+<div class="cart-box" id="cartBox">
+
+<span class="close-cart" onclick="closeCart()">✕</span>
+
+<h2>🛒 Your Cart</h2>
+
+<div id="cartItems">
+<p>Your cart is empty.</p>
+</div>
+
+<h3 id="cartTotal">
+Total: ₹0
+</h3>
+
+<button class="checkout"
+onclick="checkoutWhatsApp()">
+📱 Order on WhatsApp
+</button>
+
+<button class="pay-cart"
+onclick="payCart()">
+💳 Pay Cart Total with UPI
+</button>
+
+</div>
+
+
 <script>
 
-const defaultBreeds = [
+let cart = [];
 
-  {
-    name:"German Shepherd",
-    image:"https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=800&q=80",
-    description:"Intelligent, loyal and powerful working dog."
-  },
 
-  {
-    name:"Labrador",
-    image:"https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80",
-    description:"Friendly, intelligent and family-friendly dog."
-  },
+// ADD TO CART
 
-  {
-    name:"Husky",
-    image:"https://images.unsplash.com/photo-1605568427561-40dd23c2acea?auto=format&fit=crop&w=800&q=80",
-    description:"Beautiful, energetic and strong dog breed."
-  },
+function addToCart(name,price){
 
-  {
-    name:"Pomeranian",
-    image:"https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=800&q=80",
-    description:"Small, fluffy and adorable companion."
-  },
+cart.push({
+name:name,
+price:price
+});
 
-  {
-    name:"French Bulldog",
-    image:"https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=800&q=80",
-    description:"Popular, friendly and loving companion breed."
-  },
+updateCart();
 
-  {
-    name:"Golden Retriever",
-    image:"https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800&q=80",
-    description:"Friendly, loving and family-oriented dog."
-  },
+alert(name + " added to cart!");
 
-  {
-    name:"Doberman",
-    image:"https://images.unsplash.com/photo-1617895153857-82fe79adfcd4?auto=format&fit=crop&w=800&q=80",
-    description:"L
+}
+
+
+// UPDATE CART
+
+function updateCart(){
+
+document.getElementById("cartCount").innerText =
+cart.length;
+
+let items =
+document.getElementById("cartItems");
+
+if(cart.length === 0){
+
+items.innerHTML =
+"<p>Your cart is empty.</p>";
+
+document.getElementById("cartTotal").innerText =
+"Total: ₹0";
+
+return;
+
+}
+
+let html = "";
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+total += item.price;
+
+html += `
+
+<div class="cart-item">
+
+<strong>${item.name}</strong>
+
+<p>₹${item.price}</p>
+
+<button class="remove-btn"
+onclick="removeItem(${index})">
+Remove
+</button>
+
+</div>
+
+`;
+
+});
+
+items.innerHTML = html;
+
+document.getElementById("cartTotal").innerText =
+"Total: ₹" + total;
+
+}
+
+
+// REMOVE ITEM
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+// OPEN CART
+
+function openCart(){
+
+document
+.getElementById("cartBox")
+.classList.add("open");
+
+}
+
+
+// CLOSE CART
+
+function closeCart(){
+
+document
+.getElementById("cartBox")
+.classList.remove("open");
+
+}
+
+
+// WHATSAPP CHECKOUT
+
+function checkoutWhatsApp(){
+
+if(cart.length === 0){
+
+alert("Please add a product first.");
+
+return;
+
+}
+
+let message =
+"Hello ShopNexa 👋\n\n" +
+"I want to place an order:\n\n";
+
+let total = 0;
+
+cart.forEach((item,index)=>{
+
+message +=
+(index + 1) +
+". " +
+item.name +
+" - ₹" +
+item.price +
+"\n";
+
+total += item.price;
+
+});
+
+message +=
+"\nTotal: ₹" +
+total +
+"\n\nPlease confirm my order.";
+
+window.open(
+"https://wa.me/919041205060?text=" +
+encodeURIComponent(message),
+"_blank"
+);
+
+}
+
+
+// PAY CART TOTAL
+
+function payCart(){
+
+if(cart.length === 0){
+
+alert("Please add a product first.");
+
+return;
+
+}
+
+let total = 0;
+
+cart.forEach(item => {
+
+total += item.price;
+
+});
+
+let upiURL =
+"upi://pay" +
+"?pa=bahadursingh63036-1@oksbi" +
+"&pn=ShopNexa" +
+"&am=" +
+total +
+"&cu=INR";
+
+window.location.href = upiURL;
+
+}
+
+</script>
+
+</body>
+</html>
