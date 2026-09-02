@@ -1,143 +1,237 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sandeep Dog Farm</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
-  font-family:Arial,sans-serif;
-  background:#111;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#101010;
   color:#fff;
 }
+
 header{
   background:#000;
-  padding:18px;
+  padding:16px 20px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   position:sticky;
   top:0;
-  z-index:10;
+  z-index:1000;
+  border-bottom:1px solid #333;
 }
+
 .logo{
-  font-size:24px;
-  font-weight:bold;
   color:#d4af37;
+  font-size:23px;
+  font-weight:bold;
 }
+
 nav button{
   background:none;
   border:0;
-  color:#fff;
-  margin:5px;
+  color:white;
+  margin:4px;
   cursor:pointer;
   font-size:15px;
 }
+
 .hero{
-  min-height:420px;
+  min-height:460px;
   display:flex;
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:30px;
-  background:linear-gradient(#0008,#0008),
-  url("https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1400&q=80")
+  padding:30px 15px;
+
+  background:
+  linear-gradient(#0009,#0009),
+  url("https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1500&q=80")
   center/cover;
 }
+
 .hero h1{
-  font-size:48px;
-  margin:10px;
   color:#d4af37;
+  font-size:48px;
+  margin:10px 0;
 }
-.hero p{font-size:19px}
+
+.hero p{
+  font-size:19px;
+}
+
 .btn{
   display:inline-block;
-  padding:12px 22px;
-  margin:8px;
   border:0;
   border-radius:7px;
+  padding:12px 20px;
+  margin:6px;
   background:#d4af37;
   color:#000;
   font-weight:bold;
   cursor:pointer;
+  text-decoration:none;
 }
+
+.btn:hover{
+  opacity:.85;
+}
+
 section{
-  padding:40px 20px;
   max-width:1200px;
   margin:auto;
+  padding:45px 20px;
 }
+
 .title{
   text-align:center;
   color:#d4af37;
   margin-bottom:30px;
 }
+
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
+  grid-template-columns:
+  repeat(auto-fit,minmax(250px,1fr));
+  gap:22px;
 }
+
 .card{
   background:#1d1d1d;
   border-radius:12px;
   overflow:hidden;
-  box-shadow:0 4px 15px #000;
+  box-shadow:0 5px 20px #000;
 }
+
 .card img{
   width:100%;
-  height:220px;
+  height:230px;
   object-fit:cover;
 }
-.card-content{padding:16px}
+
+.card-content{
+  padding:18px;
+}
+
+.card h2{
+  margin-top:0;
+}
+
 .price{
   color:#d4af37;
-  font-size:22px;
+  font-size:23px;
   font-weight:bold;
 }
+
 .old{
   color:#999;
   text-decoration:line-through;
   margin-right:8px;
 }
-.admin{
-  display:none;
-  background:#181818;
-  padding:25px;
-  margin:20px auto;
-  max-width:1000px;
-  border:1px solid #444;
-  border-radius:12px;
-}
-input,textarea{
-  width:100%;
-  padding:12px;
+
+.quantity{
+  width:90px;
+  padding:10px;
   margin:8px 0;
   border-radius:6px;
   border:1px solid #555;
   background:#222;
-  color:white;
+  color:#fff;
 }
-textarea{min-height:100px}
-.login{
-  max-width:400px;
-  margin:40px auto;
-  background:#1c1c1c;
+
+.inquiry-box{
+  display:none;
+  background:#181818;
   padding:25px;
   border-radius:12px;
+  margin-top:25px;
+  border:1px solid #444;
 }
+
+input,
+textarea{
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  background:#222;
+  border:1px solid #555;
+  border-radius:6px;
+  color:#fff;
+}
+
+textarea{
+  min-height:100px;
+}
+
+.admin{
+  display:none;
+  max-width:1000px;
+  margin:30px auto;
+  padding:25px;
+  background:#181818;
+  border-radius:12px;
+}
+
+.login{
+  max-width:400px;
+  margin:50px auto;
+  padding:25px;
+  background:#1c1c1c;
+  border-radius:12px;
+}
+
+.admin-product{
+  background:#222;
+  padding:15px;
+  margin:10px 0;
+  border-radius:8px;
+}
+
 footer{
-  text-align:center;
   background:#000;
+  text-align:center;
   padding:30px;
   color:#aaa;
+  margin-top:30px;
 }
-.hidden{display:none}
-.product-actions button{
-  margin:4px;
-  padding:8px 12px;
-  cursor:pointer;
+
+.hidden{
+  display:none!important;
+}
+
+.notice{
+  background:#241f0b;
+  border:1px solid #d4af37;
+  padding:12px;
+  border-radius:7px;
+  margin:15px 0;
+}
+
+@media(max-width:600px){
+
+  header{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .hero h1{
+    font-size:35px;
+  }
+
+  .hero{
+    min-height:400px;
+  }
+
 }
 </style>
 </head>
@@ -145,148 +239,383 @@ footer{
 <body>
 
 <header>
-  <div class="logo">🐕 Sandeep Dog Farm</div>
+
+  <div class="logo">
+    🐕 Sandeep Dog Farm
+  </div>
+
   <nav>
     <button onclick="goHome()">Home</button>
     <button onclick="showProducts()">Puppies</button>
     <button onclick="showLogin()">Admin</button>
   </nav>
+
 </header>
+
+
+<!-- ================= WEBSITE ================= -->
 
 <div id="website">
 
 <section class="hero">
+
   <div>
+
     <h1>Sandeep Dog Farm</h1>
-    <p>Quality Puppies • Trusted Service • All India Delivery</p>
-    <button class="btn" onclick="showProducts()">View Puppies</button>
-    <a class="btn" href="https://wa.me/" target="_blank">WhatsApp</a>
+
+    <p>
+      Quality Puppies • Trusted Service • All India Delivery
+    </p>
+
+    <button class="btn"
+            onclick="showProducts()">
+      🐕 View Puppies
+    </button>
+
+    <a class="btn"
+       id="heroWhatsApp"
+       href="#"
+       onclick="openGeneralWhatsApp()">
+       📱 WhatsApp
+    </a>
+
   </div>
+
 </section>
+
 
 <section id="products">
-  <h2 class="title">Available Puppies & Breeds</h2>
-  <div id="productGrid" class="grid"></div>
+
+  <h2 class="title">
+    Available Puppies & Breeds
+  </h2>
+
+  <div id="productGrid"
+       class="grid">
+  </div>
+
 </section>
+
+
+<!-- INQUIRY -->
 
 <section>
-  <h2 class="title">About Sandeep Dog Farm</h2>
-  <p style="text-align:center">
-    Welcome to Sandeep Dog Farm. We provide quality puppies
-    and professional pet services. Contact us for availability,
+
+  <h2 class="title">
+    📩 Puppy Inquiry
+  </h2>
+
+  <div id="inquiryBox"
+       class="inquiry-box">
+
+    <h3 id="inquiryTitle">
+      Puppy Inquiry
+    </h3>
+
+    <p>
+      <b>Dog Name:</b>
+      <span id="inqName"></span>
+    </p>
+
+    <p>
+      <b>Price:</b>
+      ₹<span id="inqPrice"></span>
+    </p>
+
+    <p>
+      <b>Quantity:</b>
+      <span id="inqQty"></span>
+    </p>
+
+    <p>
+      <b>Total:</b>
+      ₹<span id="inqTotal"></span>
+    </p>
+
+    <input
+      id="customerName"
+      placeholder="Your Name">
+
+    <input
+      id="customerPhone"
+      placeholder="Your Phone Number"
+      type="tel">
+
+    <button class="btn"
+            onclick="sendInquiry()">
+      📲 Send Inquiry on WhatsApp
+    </button>
+
+  </div>
+
+</section>
+
+
+<section>
+
+  <h2 class="title">
+    About Sandeep Dog Farm
+  </h2>
+
+  <p style="text-align:center;line-height:1.8">
+
+    Welcome to Sandeep Dog Farm.
+    We provide quality puppies and pet services.
+    Contact us for puppy availability,
     pricing and delivery information.
+
   </p>
+
 </section>
 
 </div>
 
-<!-- LOGIN -->
-<div id="loginPage" class="hidden">
+
+<!-- ================= LOGIN ================= -->
+
+<div id="loginPage"
+     class="hidden">
+
   <div class="login">
-    <h2 class="title">🔐 Owner Admin Login</h2>
+
+    <h2 class="title">
+      🔐 Owner Login
+    </h2>
 
     <label>Admin Name</label>
-    <input id="adminName" type="text" placeholder="Enter admin name">
+
+    <input
+      id="adminName"
+      type="text"
+      placeholder="Enter Admin Name">
 
     <label>Password</label>
-    <input id="adminPassword" type="password" placeholder="Enter password">
 
-    <button class="btn" onclick="login()">Login</button>
+    <input
+      id="adminPassword"
+      type="password"
+      placeholder="Enter Password">
+
+    <button class="btn"
+            onclick="login()">
+      Login
+    </button>
 
     <p id="loginMessage"></p>
+
   </div>
+
 </div>
 
-<!-- ADMIN PANEL -->
-<div id="adminPanel" class="admin">
 
-  <h2 class="title">👑 Bahadur Singh - Admin Panel</h2>
+<!-- ================= ADMIN PANEL ================= -->
 
-  <button class="btn" onclick="logout()">Logout</button>
+<div id="adminPanel"
+     class="admin">
+
+  <h2 class="title">
+    👑 Sandeep Dog Farm Admin Panel
+  </h2>
+
+  <p>
+    Welcome, <b>Bahadur Singh</b>
+  </p>
+
+  <button class="btn"
+          onclick="logout()">
+    Logout
+  </button>
 
   <hr>
 
-  <h3>Add / Edit Puppy</h3>
+  <h3>➕ Add / Edit Puppy</h3>
 
-  <input type="hidden" id="editId">
+  <input
+    type="hidden"
+    id="editId">
 
   <label>Puppy / Breed Name</label>
-  <input id="pName" placeholder="German Shepherd">
+
+  <input
+    id="pName"
+    placeholder="German Shepherd">
 
   <label>Description</label>
-  <textarea id="pDescription"
-  placeholder="Write puppy description"></textarea>
+
+  <textarea
+    id="pDescription"
+    placeholder="Write puppy description"></textarea>
 
   <label>Current Price</label>
-  <input id="pPrice" type="number" placeholder="7500">
+
+  <input
+    id="pPrice"
+    type="number"
+    placeholder="7500">
 
   <label>Old Price</label>
-  <input id="pOldPrice" type="number" placeholder="10000">
+
+  <input
+    id="pOldPrice"
+    type="number"
+    placeholder="10000">
 
   <label>Photo</label>
-  <input id="pImage" type="file" accept="image/*">
 
-  <button class="btn" onclick="saveProduct()">Save Product</button>
+  <input
+    id="pImage"
+    type="file"
+    accept="image/*">
 
-  <h3>Products</h3>
+  <button class="btn"
+          onclick="saveProduct()">
+    💾 Save Product
+  </button>
+
+  <button class="btn"
+          onclick="clearForm()">
+    Clear
+  </button>
+
+  <hr>
+
+  <h3>📦 Your Products</h3>
+
   <div id="adminProducts"></div>
 
 </div>
 
+
 <footer>
-  © 2026 Sandeep Dog Farm | All Rights Reserved
+
+  © 2026 Sandeep Dog Farm
+  <br>
+  All Rights Reserved
+
 </footer>
+
 
 <script>
 
+/* =====================================
+   OWNER LOGIN
+===================================== */
+
 const ADMIN_NAME = "Bahadur Singh";
+
 const ADMIN_PASSWORD = "Manjinder Singh";
 
-let products = JSON.parse(localStorage.getItem("sandeepDogProducts")) || [
+
+/* =====================================
+   UPI INFORMATION
+===================================== */
+
+const UPI_ID =
+"bahadursingh63036-1@oksbi";
+
+const BUSINESS_NAME =
+"Sandeep Dog Farm";
+
+
+/* =====================================
+   WHATSAPP NUMBER
+=====================================
+
+   यहाँ अपना WhatsApp number डालें।
+
+   Example:
+   const WHATSAPP_NUMBER = "919041205060";
+
+===================================== */
+
+const WHATSAPP_NUMBER = "";
+
+
+/* =====================================
+   LOAD PRODUCTS
+===================================== */
+
+let products =
+JSON.parse(
+localStorage.getItem("sandeepDogProducts")
+) || [
 
 {
- id:Date.now(),
- name:"German Shepherd",
- description:"Healthy German Shepherd puppy available.",
- price:"7500",
- oldPrice:"10000",
- image:"https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=900&q=80"
+  id:Date.now(),
+
+  name:"German Shepherd",
+
+  description:
+  "Healthy German Shepherd puppy available.",
+
+  price:"7500",
+
+  oldPrice:"10000",
+
+  image:
+  "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=900&q=80"
 }
 
 ];
 
+
+/* =====================================
+   SAVE DATA
+===================================== */
+
 function saveData(){
+
   localStorage.setItem(
     "sandeepDogProducts",
     JSON.stringify(products)
   );
+
 }
+
+
+/* =====================================
+   DISPLAY PRODUCTS
+===================================== */
 
 function displayProducts(){
 
-  const grid=document.getElementById("productGrid");
+  const grid =
+  document.getElementById("productGrid");
 
   grid.innerHTML="";
 
   if(products.length===0){
-    grid.innerHTML="<p>No puppies available.</p>";
+
+    grid.innerHTML=
+    "<p>No puppies available.</p>";
+
     return;
+
   }
 
-  products.forEach(p=>{
+
+  products.forEach(function(p){
 
     grid.innerHTML += `
+
       <div class="card">
 
-        <img src="${p.image}" alt="${p.name}">
+        <img
+          src="${p.image}"
+          alt="${escapeHTML(p.name)}">
 
         <div class="card-content">
 
-          <h2>${escapeHTML(p.name)}</h2>
+          <h2>
+            ${escapeHTML(p.name)}
+          </h2>
 
-          <p>${escapeHTML(p.description)}</p>
+          <p>
+            ${escapeHTML(p.description)}
+          </p>
 
           <div>
+
             <span class="old">
               ₹${escapeHTML(p.oldPrice)}
             </span>
@@ -294,147 +623,631 @@ function displayProducts(){
             <span class="price">
               ₹${escapeHTML(p.price)}
             </span>
+
           </div>
 
           <br>
 
-          <a class="btn"
-             href="https://wa.me/?text=I%20am%20interested%20in%20${encodeURIComponent(p.name)}"
-             target="_blank">
-             WhatsApp Enquiry
-          </a>
+          <label>
+            Quantity
+          </label>
 
-        </div>
+          <br>
 
-      </div>
-    `;
-  });
-}
+          <input
+            class="quantity"
+            id="qty-${p.id}"
+            type="number"
+            min="1"
+            value="1">
 
-function displayAdminProducts(){
+          <br>
 
-  const box=document.getElementById("adminProducts");
+          <button
+            class="btn"
+            onclick="makeInquiry(${p.id})">
 
-  box.innerHTML="";
+            📩 Inquiry
 
-  products.forEach(p=>{
-
-    box.innerHTML += `
-      <div style="
-        background:#222;
-        padding:15px;
-        margin:10px 0;
-        border-radius:8px;
-      ">
-
-        <strong>${escapeHTML(p.name)}</strong>
-        — ₹${escapeHTML(p.price)}
-
-        <div class="product-actions">
-
-          <button onclick="editProduct(${p.id})">
-            ✏️ Edit
           </button>
 
-          <button onclick="deleteProduct(${p.id})">
-            🗑️ Delete
+
+          <button
+            class="btn"
+            onclick="payNow(${p.id})">
+
+            💳 Pay Now
+
           </button>
 
         </div>
 
       </div>
+
     `;
+
   });
+
 }
+
+
+/* =====================================
+   INQUIRY
+===================================== */
+
+function makeInquiry(id){
+
+  const product =
+  products.find(
+    function(p){
+      return p.id===id;
+    }
+  );
+
+  if(!product)return;
+
+
+  const qty =
+  parseInt(
+    document.getElementById(
+      "qty-"+id
+    ).value
+  ) || 1;
+
+
+  const price =
+  Number(product.price) || 0;
+
+
+  const total =
+  price * qty;
+
+
+  document.getElementById(
+    "inqName"
+  ).textContent =
+  product.name;
+
+
+  document.getElementById(
+    "inqPrice"
+  ).textContent =
+  price.toLocaleString("en-IN");
+
+
+  document.getElementById(
+    "inqQty"
+  ).textContent =
+  qty;
+
+
+  document.getElementById(
+    "inqTotal"
+  ).textContent =
+  total.toLocaleString("en-IN");
+
+
+  document.getElementById(
+    "inquiryBox"
+  ).style.display="block";
+
+
+  window.currentInquiry = {
+
+    name:product.name,
+
+    price:price,
+
+    quantity:qty,
+
+    total:total
+
+  };
+
+
+  document.getElementById(
+    "inquiryBox"
+  ).scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =====================================
+   SEND WHATSAPP INQUIRY
+===================================== */
+
+function sendInquiry(){
+
+  if(!window.currentInquiry){
+
+    alert(
+      "Please select a puppy first."
+    );
+
+    return;
+
+  }
+
+
+  const customerName =
+  document.getElementById(
+    "customerName"
+  ).value.trim();
+
+
+  const customerPhone =
+  document.getElementById(
+    "customerPhone"
+  ).value.trim();
+
+
+  const i =
+  window.currentInquiry;
+
+
+  let message =
+
+`🐕 Sandeep Dog Farm - Puppy Inquiry
+
+Puppy/Breed: ${i.name}
+
+Price: ₹${i.price.toLocaleString("en-IN")}
+
+Quantity: ${i.quantity}
+
+Total Amount: ₹${i.total.toLocaleString("en-IN")}`;
+
+
+  if(customerName){
+
+    message +=
+    `\n\nCustomer Name: ${customerName}`;
+
+  }
+
+
+  if(customerPhone){
+
+    message +=
+    `\nCustomer Phone: ${customerPhone}`;
+
+  }
+
+
+  message +=
+  `\n\nPlease provide availability and delivery details.`;
+
+
+  if(!WHATSAPP_NUMBER){
+
+    alert(
+      "पहले code में WHATSAPP_NUMBER में अपना WhatsApp number डालें।"
+    );
+
+    return;
+
+  }
+
+
+  const url =
+  "https://wa.me/" +
+  WHATSAPP_NUMBER +
+  "?text=" +
+  encodeURIComponent(message);
+
+
+  window.open(
+    url,
+    "_blank"
+  );
+
+}
+
+
+/* =====================================
+   PAY NOW
+===================================== */
+
+function payNow(id){
+
+  const product =
+  products.find(
+    function(p){
+      return p.id===id;
+    }
+  );
+
+  if(!product)return;
+
+
+  const qty =
+  parseInt(
+    document.getElementById(
+      "qty-"+id
+    ).value
+  ) || 1;
+
+
+  const price =
+  Number(product.price) || 0;
+
+
+  const total =
+  price * qty;
+
+
+  if(total<=0){
+
+    alert(
+      "Invalid product price."
+    );
+
+    return;
+
+  }
+
+
+  /*
+    UPI payment link.
+
+    Amount automatically comes
+    from product price × quantity.
+  */
+
+  const upiURL =
+  "upi://pay" +
+
+  "?pa=" +
+  encodeURIComponent(UPI_ID) +
+
+  "&pn=" +
+  encodeURIComponent(BUSINESS_NAME) +
+
+  "&am=" +
+  encodeURIComponent(total.toFixed(2)) +
+
+  "&cu=INR" +
+
+  "&tn=" +
+  encodeURIComponent(
+    product.name +
+    " x " +
+    qty
+  );
+
+
+  window.location.href =
+  upiURL;
+
+}
+
+
+/* =====================================
+   GENERAL WHATSAPP
+===================================== */
+
+function openGeneralWhatsApp(){
+
+  if(!WHATSAPP_NUMBER){
+
+    alert(
+      "Code में अपना WhatsApp number डालें।"
+    );
+
+    return;
+
+  }
+
+
+  const message =
+  "Hello Sandeep Dog Farm, I want information about available puppies.";
+
+
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP_NUMBER +
+    "?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
+
+}
+
+
+/* =====================================
+   ADMIN LOGIN
+===================================== */
 
 function login(){
 
-  const name=document.getElementById("adminName").value.trim();
-  const password=document.getElementById("adminPassword").value;
+  const name =
+  document.getElementById(
+    "adminName"
+  ).value.trim();
 
-  if(name === ADMIN_NAME && password === ADMIN_PASSWORD){
 
-    sessionStorage.setItem("adminLoggedIn","true");
+  const password =
+  document.getElementById(
+    "adminPassword"
+  ).value;
 
-    document.getElementById("loginPage").classList.add("hidden");
-    document.getElementById("website").classList.add("hidden");
-    document.getElementById("adminPanel").style.display="block";
+
+  if(
+    name===ADMIN_NAME &&
+    password===ADMIN_PASSWORD
+  ){
+
+    sessionStorage.setItem(
+      "adminLoggedIn",
+      "true"
+    );
+
+
+    document.getElementById(
+      "loginPage"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+      "website"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+      "adminPanel"
+    ).style.display="block";
+
 
     displayAdminProducts();
 
+
   }else{
 
-    document.getElementById("loginMessage").innerHTML=
-      "❌ Wrong Admin Name or Password";
+    document.getElementById(
+      "loginMessage"
+    ).innerHTML =
+    "❌ Wrong Admin Name or Password";
 
   }
+
 }
+
+
+/* =====================================
+   SHOW LOGIN
+===================================== */
 
 function showLogin(){
 
-  document.getElementById("website").classList.add("hidden");
-  document.getElementById("loginPage").classList.remove("hidden");
-  document.getElementById("adminPanel").style.display="none";
+  document.getElementById(
+    "website"
+  ).classList.add("hidden");
+
+
+  document.getElementById(
+    "loginPage"
+  ).classList.remove("hidden");
+
+
+  document.getElementById(
+    "adminPanel"
+  ).style.display="none";
 
 }
+
+
+/* =====================================
+   HOME
+===================================== */
 
 function goHome(){
 
-  document.getElementById("loginPage").classList.add("hidden");
-  document.getElementById("adminPanel").style.display="none";
-  document.getElementById("website").classList.remove("hidden");
+  document.getElementById(
+    "loginPage"
+  ).classList.add("hidden");
+
+
+  document.getElementById(
+    "adminPanel"
+  ).style.display="none";
+
+
+  document.getElementById(
+    "website"
+  ).classList.remove("hidden");
 
 }
+
+
+/* =====================================
+   PRODUCTS
+===================================== */
 
 function showProducts(){
 
   goHome();
 
-  document.getElementById("products")
-  .scrollIntoView({behavior:"smooth"});
+
+  document.getElementById(
+    "products"
+  ).scrollIntoView({
+    behavior:"smooth"
+  });
 
 }
+
+
+/* =====================================
+   LOGOUT
+===================================== */
 
 function logout(){
 
-  sessionStorage.removeItem("adminLoggedIn");
+  sessionStorage.removeItem(
+    "adminLoggedIn"
+  );
 
-  document.getElementById("adminPanel").style.display="none";
-  document.getElementById("website").classList.remove("hidden");
+
+  document.getElementById(
+    "adminPanel"
+  ).style.display="none";
+
+
+  document.getElementById(
+    "website"
+  ).classList.remove("hidden");
 
 }
 
+
+/* =====================================
+   ADMIN PRODUCTS
+===================================== */
+
+function displayAdminProducts(){
+
+  const box =
+  document.getElementById(
+    "adminProducts"
+  );
+
+
+  box.innerHTML="";
+
+
+  products.forEach(function(p){
+
+    box.innerHTML += `
+
+      <div class="admin-product">
+
+        <strong>
+          ${escapeHTML(p.name)}
+        </strong>
+
+        <br>
+
+        Price:
+        ₹${escapeHTML(p.price)}
+
+        <br><br>
+
+        <button
+          class="btn"
+          onclick="editProduct(${p.id})">
+
+          ✏️ Edit
+
+        </button>
+
+        <button
+          class="btn"
+          onclick="deleteProduct(${p.id})">
+
+          🗑️ Delete
+
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+/* =====================================
+   SAVE PRODUCT
+===================================== */
+
 function saveProduct(){
 
-  const name=document.getElementById("pName").value.trim();
-  const description=document.getElementById("pDescription").value.trim();
-  const price=document.getElementById("pPrice").value;
-  const oldPrice=document.getElementById("pOldPrice").value;
-  const imageFile=document.getElementById("pImage").files[0];
-  const editId=document.getElementById("editId").value;
+  const name =
+  document.getElementById(
+    "pName"
+  ).value.trim();
 
-  if(!name || !description || !price){
-    alert("Please fill Name, Description and Price.");
+
+  const description =
+  document.getElementById(
+    "pDescription"
+  ).value.trim();
+
+
+  const price =
+  document.getElementById(
+    "pPrice"
+  ).value;
+
+
+  const oldPrice =
+  document.getElementById(
+    "pOldPrice"
+  ).value;
+
+
+  const imageFile =
+  document.getElementById(
+    "pImage"
+  ).files[0];
+
+
+  const editId =
+  document.getElementById(
+    "editId"
+  ).value;
+
+
+  if(
+    !name ||
+    !description ||
+    !price
+  ){
+
+    alert(
+      "Name, Description और Price भरें।"
+    );
+
     return;
+
   }
+
 
   function finish(image){
 
     if(editId){
 
-      const index=products.findIndex(
-        p=>p.id == editId
+      const index =
+      products.findIndex(
+        function(p){
+          return p.id==editId;
+        }
       );
 
-      if(index !== -1){
 
-        products[index].name=name;
-        products[index].description=description;
-        products[index].price=price;
-        products[index].oldPrice=oldPrice;
+      if(index!==-1){
+
+        products[index].name =
+        name;
+
+        products[index].description =
+        description;
+
+        products[index].price =
+        price;
+
+        products[index].oldPrice =
+        oldPrice;
+
 
         if(image){
-          products[index].image=image;
+
+          products[index].image =
+          image;
+
         }
 
       }
@@ -444,53 +1257,108 @@ function saveProduct(){
       products.push({
 
         id:Date.now(),
+
         name:name,
+
         description:description,
+
         price:price,
+
         oldPrice:oldPrice,
+
         image:image || ""
 
       });
 
     }
 
+
     saveData();
+
     displayProducts();
+
     displayAdminProducts();
+
     clearForm();
 
-    alert("✅ Product saved successfully!");
+
+    alert(
+      "✅ Product saved successfully!"
+    );
 
   }
 
+
   if(imageFile){
 
-    const reader=new FileReader();
+    const reader =
+    new FileReader();
 
-    reader.onload=function(e){
-      finish(e.target.result);
+
+    reader.onload =
+    function(e){
+
+      finish(
+        e.target.result
+      );
+
     };
 
-    reader.readAsDataURL(imageFile);
+
+    reader.readAsDataURL(
+      imageFile
+    );
 
   }else{
 
     finish(null);
 
   }
+
 }
+
+
+/* =====================================
+   EDIT PRODUCT
+===================================== */
 
 function editProduct(id){
 
-  const p=products.find(x=>x.id===id);
+  const p =
+  products.find(
+    function(x){
+      return x.id===id;
+    }
+  );
+
 
   if(!p)return;
 
-  document.getElementById("editId").value=p.id;
-  document.getElementById("pName").value=p.name;
-  document.getElementById("pDescription").value=p.description;
-  document.getElementById("pPrice").value=p.price;
-  document.getElementById("pOldPrice").value=p.oldPrice;
+
+  document.getElementById(
+    "editId"
+  ).value=p.id;
+
+
+  document.getElementById(
+    "pName"
+  ).value=p.name;
+
+
+  document.getElementById(
+    "pDescription"
+  ).value=p.description;
+
+
+  document.getElementById(
+    "pPrice"
+  ).value=p.price;
+
+
+  document.getElementById(
+    "pOldPrice"
+  ).value=p.oldPrice;
+
 
   window.scrollTo({
     top:0,
@@ -499,42 +1367,115 @@ function editProduct(id){
 
 }
 
+
+/* =====================================
+   DELETE PRODUCT
+===================================== */
+
 function deleteProduct(id){
 
-  if(confirm("Delete this product?")){
+  if(
+    confirm(
+      "क्या आप इस product को delete करना चाहते हैं?"
+    )
+  ){
 
-    products=products.filter(
-      p=>p.id!==id
+    products =
+    products.filter(
+      function(p){
+        return p.id!==id;
+      }
     );
 
+
     saveData();
+
     displayProducts();
+
     displayAdminProducts();
 
   }
+
 }
+
+
+/* =====================================
+   CLEAR FORM
+===================================== */
 
 function clearForm(){
 
-  document.getElementById("editId").value="";
-  document.getElementById("pName").value="";
-  document.getElementById("pDescription").value="";
-  document.getElementById("pPrice").value="";
-  document.getElementById("pOldPrice").value="";
-  document.getElementById("pImage").value="";
+  document.getElementById(
+    "editId"
+  ).value="";
+
+
+  document.getElementById(
+    "pName"
+  ).value="";
+
+
+  document.getElementById(
+    "pDescription"
+  ).value="";
+
+
+  document.getElementById(
+    "pPrice"
+  ).value="";
+
+
+  document.getElementById(
+    "pOldPrice"
+  ).value="";
+
+
+  document.getElementById(
+    "pImage"
+  ).value="";
 
 }
+
+
+/* =====================================
+   SECURITY / HTML ESCAPE
+===================================== */
 
 function escapeHTML(value){
 
   return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
+
+
+/* =====================================
+   START WEBSITE
+===================================== */
 
 displayProducts();
 
@@ -542,4 +1483,3 @@ displayProducts();
 
 </body>
 </html>
-
