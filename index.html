@@ -3,181 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Online Store</title>
+<title>Sandeep Dog Farm</title>
 
 <style>
 *{box-sizing:border-box}
-
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f5f5f5;
-    color:#222;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#111;
+  color:#fff;
 }
-
 header{
-    background:#111;
-    color:white;
-    padding:18px;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:10;
+  background:#000;
+  padding:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
 }
-
-header h1{
-    margin:0 0 8px;
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  color:#d4af37;
 }
-
-button{
-    cursor:pointer;
+nav button{
+  background:none;
+  border:0;
+  color:#fff;
+  margin:5px;
+  cursor:pointer;
+  font-size:15px;
 }
-
-.cartBtn,
-.adminBtn{
-    border:0;
-    padding:10px 15px;
-    border-radius:8px;
-    margin:4px;
+.hero{
+  min-height:420px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+  background:linear-gradient(#0008,#0008),
+  url("https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1400&q=80")
+  center/cover;
 }
-
-.cartBtn{
-    background:#25d366;
-    color:white;
+.hero h1{
+  font-size:48px;
+  margin:10px;
+  color:#d4af37;
 }
-
-.adminBtn{
-    background:#ffc107;
-    color:#111;
+.hero p{font-size:19px}
+.btn{
+  display:inline-block;
+  padding:12px 22px;
+  margin:8px;
+  border:0;
+  border-radius:7px;
+  background:#d4af37;
+  color:#000;
+  font-weight:bold;
+  cursor:pointer;
 }
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    padding:20px;
+section{
+  padding:40px 20px;
+  max-width:1200px;
+  margin:auto;
 }
-
-.product{
-    background:white;
-    border-radius:12px;
-    padding:12px;
-    box-shadow:0 2px 8px #ccc;
+.title{
+  text-align:center;
+  color:#d4af37;
+  margin-bottom:30px;
 }
-
-.product img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:10px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
 }
-
-.product h3{
-    margin:10px 0 5px;
+.card{
+  background:#1d1d1d;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 15px #000;
 }
-
+.card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+.card-content{padding:16px}
 .price{
-    font-size:20px;
-    font-weight:bold;
-    margin:7px 0;
+  color:#d4af37;
+  font-size:22px;
+  font-weight:bold;
 }
-
-.product button{
-    width:100%;
-    padding:11px;
-    border:0;
-    border-radius:8px;
-    background:#111;
-    color:white;
+.old{
+  color:#999;
+  text-decoration:line-through;
+  margin-right:8px;
 }
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
-    z-index:50;
-    padding:20px;
-    overflow:auto;
+.admin{
+  display:none;
+  background:#181818;
+  padding:25px;
+  margin:20px auto;
+  max-width:1000px;
+  border:1px solid #444;
+  border-radius:12px;
 }
-
-.box{
-    background:white;
-    max-width:600px;
-    margin:30px auto;
-    padding:20px;
-    border-radius:15px;
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid #555;
+  background:#222;
+  color:white;
 }
-
-.close{
-    float:right;
-    background:#e53935;
-    color:white;
-    border:0;
-    padding:7px 12px;
-    border-radius:6px;
+textarea{min-height:100px}
+.login{
+  max-width:400px;
+  margin:40px auto;
+  background:#1c1c1c;
+  padding:25px;
+  border-radius:12px;
 }
-
-input,
-textarea{
-    width:100%;
-    padding:11px;
-    margin:7px 0;
-    border:1px solid #bbb;
-    border-radius:7px;
+footer{
+  text-align:center;
+  background:#000;
+  padding:30px;
+  color:#aaa;
 }
-
-.action{
-    width:100%;
-    padding:13px;
-    border:0;
-    border-radius:8px;
-    margin-top:8px;
-    font-weight:bold;
-}
-
-.whatsapp{
-    background:#25d366;
-    color:white;
-}
-
-.pay{
-    background:#4285f4;
-    color:white;
-}
-
-.danger{
-    background:#e53935;
-    color:white;
-}
-
-.add{
-    background:#111;
-    color:white;
-}
-
-.cartItem{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:10px 0;
-    border-bottom:1px solid #ddd;
-}
-
-.qty button{
-    padding:4px 9px;
-    margin:2px;
-}
-
-.total{
-    font-size:22px;
-    font-weight:bold;
-    margin-top:15px;
-}
-
-.small{
-    color:#666;
-    font-size:13px;
+.hidden{display:none}
+.product-actions button{
+  margin:4px;
+  padding:8px 12px;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -185,892 +145,398 @@ textarea{
 <body>
 
 <header>
-
-<h1>My Online Store</h1>
-
-<button class="cartBtn" onclick="openCart()">
-🛒 Cart (<span id="cartCount">0</span>)
-</button>
-
-<button class="adminBtn" onclick="openAdminLogin()">
-🔐 Admin
-</button>
-
+  <div class="logo">🐕 Sandeep Dog Farm</div>
+  <nav>
+    <button onclick="goHome()">Home</button>
+    <button onclick="showProducts()">Puppies</button>
+    <button onclick="showLogin()">Admin</button>
+  </nav>
 </header>
 
-<div class="products" id="products"></div>
+<div id="website">
 
+<section class="hero">
+  <div>
+    <h1>Sandeep Dog Farm</h1>
+    <p>Quality Puppies • Trusted Service • All India Delivery</p>
+    <button class="btn" onclick="showProducts()">View Puppies</button>
+    <a class="btn" href="https://wa.me/" target="_blank">WhatsApp</a>
+  </div>
+</section>
 
-<!-- CART -->
+<section id="products">
+  <h2 class="title">Available Puppies & Breeds</h2>
+  <div id="productGrid" class="grid"></div>
+</section>
 
-<div class="modal" id="cartModal">
-
-<div class="box">
-
-<button class="close" onclick="closeModal('cartModal')">X</button>
-
-<h2>🛒 Your Cart</h2>
-
-<div id="cartItems"></div>
-
-<div class="total">
-Total: ₹<span id="cartTotal">0</span>
-</div>
-
-<hr>
-
-<h3>Customer Details</h3>
-
-<input id="customerName" placeholder="Your Name">
-
-<input id="customerPhone" placeholder="Mobile Number">
-
-<textarea id="customerAddress"
-placeholder="Delivery Address"></textarea>
-
-
-<!-- WHATSAPP ORDER -->
-
-<button class="action whatsapp" onclick="whatsappOrder()">
-🟢 WhatsApp Order
-</button>
-
-
-<!-- PAY ON ORDER -->
-
-<button class="action pay" onclick="payOnOrder()">
-💳 Pay on Order — Google Pay / UPI
-</button>
-
-<p class="small">
-Your cart total will be automatically added to the UPI payment request.
-</p>
+<section>
+  <h2 class="title">About Sandeep Dog Farm</h2>
+  <p style="text-align:center">
+    Welcome to Sandeep Dog Farm. We provide quality puppies
+    and professional pet services. Contact us for availability,
+    pricing and delivery information.
+  </p>
+</section>
 
 </div>
+
+<!-- LOGIN -->
+<div id="loginPage" class="hidden">
+  <div class="login">
+    <h2 class="title">🔐 Owner Admin Login</h2>
+
+    <label>Admin Name</label>
+    <input id="adminName" type="text" placeholder="Enter admin name">
+
+    <label>Password</label>
+    <input id="adminPassword" type="password" placeholder="Enter password">
+
+    <button class="btn" onclick="login()">Login</button>
+
+    <p id="loginMessage"></p>
+  </div>
 </div>
-
-
-<!-- ADMIN LOGIN -->
-
-<div class="modal" id="loginModal">
-
-<div class="box">
-
-<button class="close" onclick="closeModal('loginModal')">X</button>
-
-<h2>🔐 Admin Login</h2>
-
-<input
-type="text"
-id="adminUser"
-placeholder="Username">
-
-<input
-type="password"
-id="adminPass"
-placeholder="Password">
-
-<button class="action add" onclick="adminLogin()">
-Login
-</button>
-
-</div>
-</div>
-
 
 <!-- ADMIN PANEL -->
+<div id="adminPanel" class="admin">
 
-<div class="modal" id="adminModal">
+  <h2 class="title">👑 Bahadur Singh - Admin Panel</h2>
 
-<div class="box">
+  <button class="btn" onclick="logout()">Logout</button>
 
-<button class="close" onclick="closeModal('adminModal')">X</button>
+  <hr>
 
-<h2>⚙️ Admin Panel</h2>
+  <h3>Add / Edit Puppy</h3>
 
-<input
-id="pName"
-placeholder="Product Name">
+  <input type="hidden" id="editId">
 
-<input
-id="pPrice"
-type="number"
-placeholder="Price">
+  <label>Puppy / Breed Name</label>
+  <input id="pName" placeholder="German Shepherd">
 
-<input
-id="pStock"
-type="number"
-placeholder="Stock">
+  <label>Description</label>
+  <textarea id="pDescription"
+  placeholder="Write puppy description"></textarea>
 
-<input
-id="pImage"
-placeholder="Image URL">
+  <label>Current Price</label>
+  <input id="pPrice" type="number" placeholder="7500">
 
-<button class="action add" onclick="addProduct()">
-➕ Add Product
-</button>
+  <label>Old Price</label>
+  <input id="pOldPrice" type="number" placeholder="10000">
 
-<hr>
+  <label>Photo</label>
+  <input id="pImage" type="file" accept="image/*">
 
-<h3>Products</h3>
+  <button class="btn" onclick="saveProduct()">Save Product</button>
 
-<div id="adminProducts"></div>
+  <h3>Products</h3>
+  <div id="adminProducts"></div>
 
 </div>
-</div>
 
+<footer>
+  © 2026 Sandeep Dog Farm | All Rights Reserved
+</footer>
 
 <script>
 
-/* =====================================
-   YOUR PAYMENT & WHATSAPP SETTINGS
-===================================== */
+const ADMIN_NAME = "Bahadur Singh";
+const ADMIN_PASSWORD = "Manjinder Singh";
 
-const UPI_ID = "bahadursingh63036-1@oksbi";
-
-const WHATSAPP_NUMBER = "919041205060";
-
-
-/* =====================================
-   PRODUCTS
-===================================== */
-
-let products =
-JSON.parse(localStorage.getItem("products")) || [
+let products = JSON.parse(localStorage.getItem("sandeepDogProducts")) || [
 
 {
-id:1,
-name:"Premium Wireless AirBuds",
-price:999,
-stock:10,
-image:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:2,
-name:"Smart Watch",
-price:1499,
-stock:8,
-image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
-},
-
-{
-id:3,
-name:"Bluetooth Speaker",
-price:799,
-stock:12,
-image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80"
+ id:Date.now(),
+ name:"German Shepherd",
+ description:"Healthy German Shepherd puppy available.",
+ price:"7500",
+ oldPrice:"10000",
+ image:"https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&w=900&q=80"
 }
 
 ];
 
+function saveData(){
+  localStorage.setItem(
+    "sandeepDogProducts",
+    JSON.stringify(products)
+  );
+}
 
-let cart =
-JSON.parse(localStorage.getItem("cart")) || [];
+function displayProducts(){
 
+  const grid=document.getElementById("productGrid");
 
-/* =====================================
-   SAVE
-===================================== */
+  grid.innerHTML="";
 
-function saveProducts(){
+  if(products.length===0){
+    grid.innerHTML="<p>No puppies available.</p>";
+    return;
+  }
 
-localStorage.setItem(
-"products",
-JSON.stringify(products)
-);
+  products.forEach(p=>{
+
+    grid.innerHTML += `
+      <div class="card">
+
+        <img src="${p.image}" alt="${p.name}">
+
+        <div class="card-content">
+
+          <h2>${escapeHTML(p.name)}</h2>
+
+          <p>${escapeHTML(p.description)}</p>
+
+          <div>
+            <span class="old">
+              ₹${escapeHTML(p.oldPrice)}
+            </span>
+
+            <span class="price">
+              ₹${escapeHTML(p.price)}
+            </span>
+          </div>
+
+          <br>
+
+          <a class="btn"
+             href="https://wa.me/?text=I%20am%20interested%20in%20${encodeURIComponent(p.name)}"
+             target="_blank">
+             WhatsApp Enquiry
+          </a>
+
+        </div>
+
+      </div>
+    `;
+  });
+}
+
+function displayAdminProducts(){
+
+  const box=document.getElementById("adminProducts");
+
+  box.innerHTML="";
+
+  products.forEach(p=>{
+
+    box.innerHTML += `
+      <div style="
+        background:#222;
+        padding:15px;
+        margin:10px 0;
+        border-radius:8px;
+      ">
+
+        <strong>${escapeHTML(p.name)}</strong>
+        — ₹${escapeHTML(p.price)}
+
+        <div class="product-actions">
+
+          <button onclick="editProduct(${p.id})">
+            ✏️ Edit
+          </button>
+
+          <button onclick="deleteProduct(${p.id})">
+            🗑️ Delete
+          </button>
+
+        </div>
+
+      </div>
+    `;
+  });
+}
+
+function login(){
+
+  const name=document.getElementById("adminName").value.trim();
+  const password=document.getElementById("adminPassword").value;
+
+  if(name === ADMIN_NAME && password === ADMIN_PASSWORD){
+
+    sessionStorage.setItem("adminLoggedIn","true");
+
+    document.getElementById("loginPage").classList.add("hidden");
+    document.getElementById("website").classList.add("hidden");
+    document.getElementById("adminPanel").style.display="block";
+
+    displayAdminProducts();
+
+  }else{
+
+    document.getElementById("loginMessage").innerHTML=
+      "❌ Wrong Admin Name or Password";
+
+  }
+}
+
+function showLogin(){
+
+  document.getElementById("website").classList.add("hidden");
+  document.getElementById("loginPage").classList.remove("hidden");
+  document.getElementById("adminPanel").style.display="none";
 
 }
 
-function saveCart(){
+function goHome(){
 
-localStorage.setItem(
-"cart",
-JSON.stringify(cart)
-);
-
-}
-
-
-/* =====================================
-   DISPLAY PRODUCTS
-===================================== */
-
-function renderProducts(){
-
-const box =
-document.getElementById("products");
-
-box.innerHTML="";
-
-products.forEach(p=>{
-
-box.innerHTML += `
-
-<div class="product">
-
-<img
-src="${p.image}"
-alt="${p.name}">
-
-<h3>${p.name}</h3>
-
-<div class="price">
-₹${p.price}
-</div>
-
-<div class="small">
-Stock: ${p.stock}
-</div>
-
-<br>
-
-<button
-onclick="addToCart(${p.id})"
-${p.stock<=0 ? "disabled" : ""}>
-
-${p.stock<=0
-? "Out of Stock"
-: "Add to Cart"}
-
-</button>
-
-</div>
-
-`;
-
-});
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("adminPanel").style.display="none";
+  document.getElementById("website").classList.remove("hidden");
 
 }
 
+function showProducts(){
 
-/* =====================================
-   ADD TO CART
-===================================== */
+  goHome();
 
-function addToCart(id){
-
-const product =
-products.find(p=>p.id===id);
-
-if(!product || product.stock<=0){
-
-alert("Product is out of stock.");
-
-return;
+  document.getElementById("products")
+  .scrollIntoView({behavior:"smooth"});
 
 }
 
-const existing =
-cart.find(i=>i.id===id);
+function logout(){
 
-if(existing){
+  sessionStorage.removeItem("adminLoggedIn");
 
-if(existing.qty >= product.stock){
-
-alert("Stock limit reached.");
-
-return;
+  document.getElementById("adminPanel").style.display="none";
+  document.getElementById("website").classList.remove("hidden");
 
 }
 
-existing.qty++;
+function saveProduct(){
 
-}else{
+  const name=document.getElementById("pName").value.trim();
+  const description=document.getElementById("pDescription").value.trim();
+  const price=document.getElementById("pPrice").value;
+  const oldPrice=document.getElementById("pOldPrice").value;
+  const imageFile=document.getElementById("pImage").files[0];
+  const editId=document.getElementById("editId").value;
 
-cart.push({
-id:id,
-qty:1
-});
+  if(!name || !description || !price){
+    alert("Please fill Name, Description and Price.");
+    return;
+  }
 
+  function finish(image){
+
+    if(editId){
+
+      const index=products.findIndex(
+        p=>p.id == editId
+      );
+
+      if(index !== -1){
+
+        products[index].name=name;
+        products[index].description=description;
+        products[index].price=price;
+        products[index].oldPrice=oldPrice;
+
+        if(image){
+          products[index].image=image;
+        }
+
+      }
+
+    }else{
+
+      products.push({
+
+        id:Date.now(),
+        name:name,
+        description:description,
+        price:price,
+        oldPrice:oldPrice,
+        image:image || ""
+
+      });
+
+    }
+
+    saveData();
+    displayProducts();
+    displayAdminProducts();
+    clearForm();
+
+    alert("✅ Product saved successfully!");
+
+  }
+
+  if(imageFile){
+
+    const reader=new FileReader();
+
+    reader.onload=function(e){
+      finish(e.target.result);
+    };
+
+    reader.readAsDataURL(imageFile);
+
+  }else{
+
+    finish(null);
+
+  }
 }
 
-saveCart();
+function editProduct(id){
 
-updateCart();
+  const p=products.find(x=>x.id===id);
 
-alert("Product added to cart.");
+  if(!p)return;
 
-}
+  document.getElementById("editId").value=p.id;
+  document.getElementById("pName").value=p.name;
+  document.getElementById("pDescription").value=p.description;
+  document.getElementById("pPrice").value=p.price;
+  document.getElementById("pOldPrice").value=p.oldPrice;
 
-
-/* =====================================
-   CART
-===================================== */
-
-function updateCart(){
-
-document.getElementById("cartCount").innerText =
-cart.reduce(
-(sum,i)=>sum+i.qty,
-0
-);
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
-
-
-function openCart(){
-
-renderCart();
-
-document.getElementById("cartModal")
-.style.display="block";
-
-}
-
-
-function renderCart(){
-
-const box =
-document.getElementById("cartItems");
-
-box.innerHTML="";
-
-let total=0;
-
-cart.forEach(item=>{
-
-const product =
-products.find(p=>p.id===item.id);
-
-if(!product) return;
-
-const amount =
-product.price * item.qty;
-
-total += amount;
-
-box.innerHTML += `
-
-<div class="cartItem">
-
-<div>
-
-<b>${product.name}</b>
-
-<br>
-
-₹${product.price} × ${item.qty}
-
-</div>
-
-<div class="qty">
-
-<button
-onclick="changeQty(${item.id},-1)">
-−
-</button>
-
-${item.qty}
-
-<button
-onclick="changeQty(${item.id},1)">
-+
-</button>
-
-<button
-onclick="removeFromCart(${item.id})">
-❌
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-document.getElementById("cartTotal")
-.innerText=total;
-
-}
-
-
-function changeQty(id,change){
-
-const item =
-cart.find(i=>i.id===id);
-
-const product =
-products.find(p=>p.id===id);
-
-if(!item || !product) return;
-
-item.qty += change;
-
-if(item.qty<=0){
-
-cart =
-cart.filter(i=>i.id!==id);
-
-}
-
-if(item.qty>product.stock){
-
-item.qty=product.stock;
-
-alert("Maximum available stock reached.");
-
-}
-
-saveCart();
-
-updateCart();
-
-renderCart();
-
-}
-
-
-function removeFromCart(id){
-
-cart =
-cart.filter(i=>i.id!==id);
-
-saveCart();
-
-updateCart();
-
-renderCart();
-
-}
-
-
-/* =====================================
-   TOTAL
-===================================== */
-
-function getTotal(){
-
-let total=0;
-
-cart.forEach(item=>{
-
-const product =
-products.find(p=>p.id===item.id);
-
-if(product){
-
-total +=
-product.price * item.qty;
-
-}
-
-});
-
-return total;
-
-}
-
-
-/* =====================================
-   WHATSAPP ORDER
-===================================== */
-
-function whatsappOrder(){
-
-if(cart.length===0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-const name =
-document.getElementById("customerName")
-.value.trim();
-
-const phone =
-document.getElementById("customerPhone")
-.value.trim();
-
-const address =
-document.getElementById("customerAddress")
-.value.trim();
-
-
-if(!name || !phone || !address){
-
-alert(
-"Please fill Name, Mobile Number and Address."
-);
-
-return;
-
-}
-
-
-let message =
-"🛍️ NEW ORDER\n\n";
-
-message +=
-"👤 Name: " + name + "\n";
-
-message +=
-"📞 Mobile: " + phone + "\n";
-
-message +=
-"📍 Address: " + address + "\n\n";
-
-message +=
-"Products:\n";
-
-
-cart.forEach(item=>{
-
-const product =
-products.find(p=>p.id===item.id);
-
-if(product){
-
-message +=
-product.name +
-" × " +
-item.qty +
-" = ₹" +
-(product.price * item.qty) +
-"\n";
-
-}
-
-});
-
-
-message +=
-"\n💰 Total: ₹" + getTotal();
-
-
-const whatsappURL =
-"https://wa.me/" +
-WHATSAPP_NUMBER +
-"?text=" +
-encodeURIComponent(message);
-
-
-window.open(
-whatsappURL,
-"_blank"
-);
-
-}
-
-
-/* =====================================
-   PAY ON ORDER
-===================================== */
-
-function payOnOrder(){
-
-if(cart.length===0){
-
-alert("Your cart is empty.");
-
-return;
-
-}
-
-const name =
-document.getElementById("customerName")
-.value.trim();
-
-const phone =
-document.getElementById("customerPhone")
-.value.trim();
-
-
-if(!name || !phone){
-
-alert(
-"Please enter your Name and Mobile Number first."
-);
-
-return;
-
-}
-
-
-const total = getTotal();
-
-
-if(total<=0){
-
-alert("Invalid payment amount.");
-
-return;
-
-}
-
-
-/*
-   UPI PAYMENT REQUEST
-
-   pa = UPI ID
-   pn = Store Name
-   am = Cart Total
-   cu = INR
-*/
-
-const upiLink =
-"upi://pay" +
-"?pa=" +
-encodeURIComponent(UPI_ID) +
-"&pn=" +
-encodeURIComponent("My Online Store") +
-"&am=" +
-encodeURIComponent(total.toFixed(2)) +
-"&cu=INR" +
-"&tn=" +
-encodeURIComponent(
-"Order - " + name + " - " + phone
-);
-
-
-/*
-   Open UPI / Google Pay
-*/
-
-window.location.href = upiLink;
-
-}
-
-
-/* =====================================
-   ADMIN LOGIN
-===================================== */
-
-function openAdminLogin(){
-
-document.getElementById("loginModal")
-.style.display="block";
-
-}
-
-
-function adminLogin(){
-
-const user =
-document.getElementById("adminUser").value;
-
-const pass =
-document.getElementById("adminPass").value;
-
-
-/*
-   ADMIN LOGIN
-
-   Username: admin
-   Password: password
-*/
-
-if(
-user==="admin" &&
-pass==="password"
-){
-
-closeModal("loginModal");
-
-document.getElementById("adminModal")
-.style.display="block";
-
-renderAdminProducts();
-
-}else{
-
-alert(
-"Wrong username or password."
-);
-
-}
-
-}
-
-
-/* =====================================
-   ADD PRODUCT
-===================================== */
-
-function addProduct(){
-
-const name =
-document.getElementById("pName")
-.value.trim();
-
-const price =
-Number(
-document.getElementById("pPrice")
-.value
-);
-
-const stock =
-Number(
-document.getElementById("pStock")
-.value
-);
-
-const image =
-document.getElementById("pImage")
-.value.trim();
-
-
-if(
-!name ||
-!price ||
-stock<0 ||
-!image
-){
-
-alert(
-"Please fill all product details."
-);
-
-return;
-
-}
-
-
-products.push({
-
-id:Date.now(),
-
-name:name,
-
-price:price,
-
-stock:stock,
-
-image:image
-
-});
-
-
-saveProducts();
-
-renderProducts();
-
-renderAdminProducts();
-
-
-document.getElementById("pName").value="";
-document.getElementById("pPrice").value="";
-document.getElementById("pStock").value="";
-document.getElementById("pImage").value="";
-
-
-alert(
-"Product added successfully."
-);
-
-}
-
-
-/* =====================================
-   ADMIN PRODUCTS
-===================================== */
-
-function renderAdminProducts(){
-
-const box =
-document.getElementById("adminProducts");
-
-box.innerHTML="";
-
-products.forEach(p=>{
-
-box.innerHTML += `
-
-<div
-style="
-border-bottom:1px solid #ddd;
-padding:10px 0
-">
-
-<b>${p.name}</b>
-
-<br>
-
-Price: ₹${p.price}
-
-<br>
-
-Stock: ${p.stock}
-
-<button
-class="action danger"
-onclick="deleteProduct(${p.id})">
-
-Delete
-
-</button>
-
-</div>
-
-`;
-
-});
-
-}
-
-
-/* =====================================
-   DELETE PRODUCT
-===================================== */
 
 function deleteProduct(id){
 
-if(
-!confirm("Delete this product?")
-){
+  if(confirm("Delete this product?")){
 
-return;
+    products=products.filter(
+      p=>p.id!==id
+    );
+
+    saveData();
+    displayProducts();
+    displayAdminProducts();
+
+  }
+}
+
+function clearForm(){
+
+  document.getElementById("editId").value="";
+  document.getElementById("pName").value="";
+  document.getElementById("pDescription").value="";
+  document.getElementById("pPrice").value="";
+  document.getElementById("pOldPrice").value="";
+  document.getElementById("pImage").value="";
 
 }
 
-products =
-products.filter(
-p=>p.id!==id
-);
+function escapeHTML(value){
 
-cart =
-cart.filter(
-i=>products.some(
-p=>p.id===i.id
-)
-);
-
-saveProducts();
-
-saveCart();
-
-renderProducts();
-
-updateCart();
-
-renderAdminProducts();
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
-
-/* =====================================
-   CLOSE MODALS
-===================================== */
-
-function closeModal(id){
-
-document.getElementById(id)
-.style.display="none";
-
-}
-
-
-/* =====================================
-   START WEBSITE
-===================================== */
-
-renderProducts();
-
-updateCart();
+displayProducts();
 
 </script>
 
